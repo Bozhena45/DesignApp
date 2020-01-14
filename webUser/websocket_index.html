@@ -1,0 +1,177 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>DesignApp</title>
+	<meta charset="utf-8">
+	<link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.7.2/css/all.css" integrity="sha384-fnmOCqbTlWIlj8LyTjo7mOUStjsKC4pOpQbqyi7RrhN7udi9RwhKkMHpvLbHG9Sr" crossorigin="anonymous">
+    <link rel="stylesheet" type="text/css" href="https://fontawesome.com/icons/tshirt?style=solid">
+    <link rel="stylesheet" type="text/css" href="indice.css">
+<script>
+
+let socket = new WebSocket("ws://127.0.0.1:9990");
+
+var g_idMessage = 0;
+
+function getIdMessage()
+{
+   g_idMessage++;
+   return g_idMessage;
+}
+
+socket.onopen = function(e) {
+    console.log("Conexión abierta");
+};
+
+socket.onmessage = function(event) {
+
+    console.log(event.data);
+
+};
+
+socket.onclose = function(event) {
+    console.log("Conexión cerrada");
+};
+
+socket.onerror = function(error) {
+    console.log("Error");
+};
+
+function userList()
+{
+
+    var idMensaje = getIdMessage();
+    var listaUsuarios = {action:"listaUsuarios", id:idMensaje};
+    socket.send(JSON.stringify(listaUsuarios));
+
+}
+
+function photoList()
+{
+
+   var idMensaje = getIdMessage();
+   var listaFotos = {action:"listaFotos",id:idMensaje};
+   socket.send(JSON.stringify(listaFotos));
+
+}
+
+function deletePhoto()
+{
+
+      var idMensaje = getIdMessage();
+      var fotosEliminadas = {action:"fotosEliminadas",id:idMensaje};
+      socket.send(JSON.stringify(fotosEliminadas));
+
+}
+
+function createUser(nombre,correoElectronico,contrasenya)
+{
+
+   var idMensaje = getIdMessage();
+   var name = nombre;
+   var email = correoElectronico;
+   var password = contrasenya;
+
+   var crearUsuario = {action:"crearUsuario",id:idMensaje,nombre:name,correoElectronico:email,contrasenya:password};
+   socket.send(JSON.stringify(crearUsuario));
+
+}
+
+function login()
+{
+
+
+
+}
+
+
+function logout()
+{
+
+
+}
+
+</script>
+</head>
+<body>
+<header>
+   
+   		<h1><i class="fas fa-tshirt" style="font-size: 30px;padding-right: 10px;">
+ 		</i>DesingApp <i class="fas fa-tshirt" style="font-size: 30px;padding-right: 10px;"></i></h1>
+
+ 		<nav>
+			<span>  
+                     <a href="MiAplicacion.html"><i class="fas fa-home"style="font-size: 30px;padding: 20px;"></i></a> 
+			         <a href="login.html" placeholder="login"><i class="fas fa-user-circle" style="font-size: 30px;padding: 20px;"></i></a>	   
+			</span>
+		</nav>
+		     <div>
+					<form>
+						<input type="text" name="buscar" placeholder="  Que autor quieres buscar? " style="border-radius: 10px;" >
+						<a href="Search.html"><i class="fas fa-search" style="font-size: 20px"></i></a>
+					</form>
+		    </div>
+
+   </header>
+
+   	<section class="best">
+		
+
+		<article>
+			<figure>
+			<img src="imagen1.jpg"  style="width:120px;height: 100px">
+				<figcaption>
+					<h3>Autor:</h3>
+					<p>Laura López</p>
+				</figcaption>
+			</figure>
+
+			<figure>
+				<img src="imagen.jpg"  style="width:120px;height: 100px">
+				<figcaption>
+					<h3>Autor:</h3>
+					<p>Laura López</p>
+				</figcaption>
+			</figure>
+
+			<figure>
+				<img src="imagen.jpg"  style="width:120px;height: 100px">
+				<figcaption>
+					<h3>Autor:</h3>
+					<p>Laura López</p>
+				</figcaption>
+			</figure>
+
+			<figure>
+				<img src="img1.jpg"  style="width:120px;height: 100px">
+				<figcaption>
+					<h3>Autor:</h3>
+					<p>Laura López</p>
+				</figcaption>
+			</figure>
+
+		</article>
+
+
+
+	</section>
+			
+
+   <footer>
+   	
+   		<div>
+ 			<a href="https://es-es.facebook.com/">
+	 		  	<i class="fab fa-facebook-square" style="color: #315CED"></i>
+	 		 </a>
+
+	         <a href="https://twitter.com/"> 
+	         	<i class="fab fa-twitter-square" style="color: #36edf9"></i>
+	         </a>
+
+	         <a href="https://www.instagram.com/accounts/login/">
+	          	<i class="fab fa-instagram" style="color: #b536f9"></i>
+	     	</a>
+ 		</div>
+   </footer>
+
+</body>
+</html>

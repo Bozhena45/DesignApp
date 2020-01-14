@@ -1,0 +1,31 @@
+header{
+  background-color: #D1F3EF;
+    padding: 2em 0;
+}
+header h1{
+  text-align: center;
+  font-size: 30px;
+}
+
+h1{
+  margin: 0;
+}
+section input{
+	border-radius: 10px;
+	border-color: #24DDDD;
+	background-color: #d9dada;
+	text-transform: capitalize;
+}
+section div{
+	border: double;
+	padding: 10px;
+	margin: auto;
+}
+
+
+footer div a i{
+ font-size: 50px;
+ padding: 20px;
+ justify-content: center;
+ padding-top: 10rem;
+}

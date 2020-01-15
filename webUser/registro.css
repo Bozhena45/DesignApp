@@ -1,0 +1,25 @@
+header{
+  background-color: #D1F3EF;
+    padding: 2em 0;
+}
+header h1{
+  text-align: center;
+  font-size: 30px;
+}
+
+h1{
+  margin: 0;
+}
+section input{
+	border-radius: 10px;
+	border-color: #16DFDF;
+	background-color: #d9dada;
+	text-transform: capitalize;
+}
+section div{
+	border: double;
+	width: 500px;
+	height: auto;
+	padding: 10px;
+	margin: auto;
+}

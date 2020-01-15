@@ -4,9 +4,11 @@
 #include <QDebug>
 #include <QSqlRecord>
 #include <QSqlError>
+#include <string>
 
 User::User(std::string nombre,std::string email,std::string password)
 {
+
     this->m_nombre = nombre;
     this->m_email = email;
     this->m_password = password;
@@ -61,6 +63,38 @@ json User::toJSON()
     return usuario;
 }
 
+
+///Buscar usuarios en la bbdd:
+
+User User::load(std::string usuario,std::string contrasenya)
+{
+
+    QSqlQuery query;
+    query.prepare("SELECT * from usuario where name = :usuario and password = :contrasenya ");
+    query.bindValue(":usuario",QString::fromStdString(usuario));
+    query.bindValue(":contrasenya",QString::fromStdString(contrasenya));
+    query.exec();
+
+
+    QSqlRecord rec = query.record();
+    while(query.next())
+    {
+        QString name = query.value("name").toString();
+        QString email = query.value("email").toString();
+        QString password = query.value("password").toString();
+
+        User usuario(name.toUtf8().constData(),email.toUtf8().constData(),password.toUtf8().constData());
+        usuario.setId(query.value("id_user").toInt());
+        return usuario;
+    }
+
+}
+
+void User::setId(int id)
+{
+    this->m_id = id;
+
+}
 
 
 

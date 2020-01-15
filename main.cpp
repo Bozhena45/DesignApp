@@ -123,6 +123,16 @@ int main()
 
                                 } //end if
 
+                                if (action == "entrar")
+                                {
+                                    std::string email = receivedObject["email"];
+                                    std::string pass = receivedObject["contrasenya"];
+                                    User user = User::load(email,pass);
+                                    json respuesta = user.toJSON();
+                                    webSocket->send(respuesta.dump());
+
+                                } // end if
+
                             } // end if
 
                         } // end if

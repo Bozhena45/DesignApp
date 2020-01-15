@@ -9,8 +9,13 @@ class User
 public:
     User(std::string nombre,std::string email,std::string password);
     void createUser();
+
     static json userList(json&);
     json toJSON();
+    static User load(std::string usuario,std::string contrasenya);
+
+    void setId(int id);
+
 
 private:
     int m_id;

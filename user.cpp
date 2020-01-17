@@ -69,12 +69,13 @@ json User::toJSON()
 User User::load(std::string usuario,std::string contrasenya)
 {
 
+    User u("","","");
+
     QSqlQuery query;
-    query.prepare("SELECT * from usuario where name = :usuario and password = :contrasenya ");
+    query.prepare("SELECT * from usuario where email = :usuario and password = :contrasenya ");
     query.bindValue(":usuario",QString::fromStdString(usuario));
     query.bindValue(":contrasenya",QString::fromStdString(contrasenya));
     query.exec();
-
 
     QSqlRecord rec = query.record();
     while(query.next())
@@ -87,6 +88,8 @@ User User::load(std::string usuario,std::string contrasenya)
         usuario.setId(query.value("id_user").toInt());
         return usuario;
     }
+
+    return u;
 
 }
 

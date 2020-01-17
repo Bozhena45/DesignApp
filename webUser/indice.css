@@ -42,26 +42,38 @@ header a:hover{
 
 
 /*Section*/
-
-
-section{
-  background-color: #E5F9F7;
-    padding: 0px 10px;
+section#sectionLogin input{
+	border-radius: 10px;
+	border-color: #24DDDD;
+	background-color: #d9dada;
+	text-transform: capitalize;
+}
+section#sectionLogin  div{
+	border: double;
+	padding: 10px;
+	margin: auto;
 }
 
-section p{
+
+section.best{
+  background-color: #E5F9F7;
+    padding: 0px 10px;
+    display: none;
+}
+
+section.best p{
     color: #2AA7A0; 
    text-shadow: 0 0 2px darkblue;
 
 
 
 }
-section a p{
+section.best a p{
  border-radius: 10%;
  border-color: blue;
 }
 
-article{
+section.best article{
 	display: flex;
 	justify-content: center;
 	align-items: center;

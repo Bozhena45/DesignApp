@@ -127,8 +127,10 @@ int main()
                                 {
                                     std::string email = receivedObject["email"];
                                     std::string pass = receivedObject["contrasenya"];
+
                                     User user = User::load(email,pass);
                                     json respuesta = user.toJSON();
+                                    respuesta["action"] = "login";
                                     webSocket->send(respuesta.dump());
 
                                 } // end if
@@ -158,7 +160,5 @@ int main()
     server.start();
     server.wait();
     server.stop();
-
-    return 0;
 
 }

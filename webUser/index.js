@@ -16,6 +16,15 @@ socket.onopen = function(e) {
 socket.onmessage = function(event) {
 
     console.log(event.data);
+    
+    var mensaje = JSON.parse(event.data);
+    if (mensaje.action == "login")
+    {
+      
+        document.getElementById("sectionLogin").style.display="none";
+        document.getElementsByClassName("best")[0].style.display="block";
+        
+    }
 
 };
 
@@ -68,15 +77,16 @@ function createUser(nombre,correoElectronico,contrasenya)
 }
 
 
-function login(correoElectronico,contrasenya)
+function login()
 {
-
-   var email = correoElectronico;
-   var contrasenya = password;
+    
+   var email = document.getElementById("email").value;
+   var contrasenya = document.getElementById("pass").value;
    
-   var entrar = {action:"entrar",email:email,contrasenya:password};
+   var entrar = {action:"entrar",email:email,contrasenya:contrasenya};
    socket.send(JSON.stringify(entrar));
 
+   
 }
 
 

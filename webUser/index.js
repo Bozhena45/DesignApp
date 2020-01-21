@@ -23,6 +23,7 @@ socket.onmessage = function(event) {
       
         document.getElementById("sectionLogin").style.display="none";
         document.getElementsByClassName("best")[0].style.display="block";
+        document.getElementById("indexfot").style.display="flex";
         
     }
 
@@ -89,7 +90,13 @@ function login()
    
 }
 
-
+function register()
+{
+    
+    document.getElementById("sectionLogin").style.display="none";
+    document.getElementsByClassName("registro")[0].style.display="block";
+  
+}
 function logout()
 {
 

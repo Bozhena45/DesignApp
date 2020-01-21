@@ -10,16 +10,14 @@ header h1{
 h1{
   margin: 0;
 }
-section input{
+section.registro input{
 	border-radius: 10px;
 	border-color: #16DFDF;
 	background-color: #d9dada;
 	text-transform: capitalize;
 }
-section div{
+section.registro div{
 	border: double;
-	width: 500px;
-	height: auto;
 	padding: 10px;
 	margin: auto;
 }

@@ -15,22 +15,12 @@
    		<h1><i class="fas fa-tshirt" style="font-size: 30px;padding-right: 10px;">
  		</i>DesingApp <i class="fas fa-tshirt" style="font-size: 30px;padding-right: 10px;"></i></h1>
 
- 		<nav>
-			<span>  
-                     <a href="MiAplicacion.html"><i class="fas fa-home"style="font-size: 30px;padding: 20px;"></i></a> 
-			         <a href="login.html" placeholder="login"><i class="fas fa-user-circle" style="font-size: 30px;padding: 20px;"></i></a>	   
-			</span>
-		</nav>
-		     <div>
-					<form>
-						<input type="text" name="buscar" placeholder="  Que autor quieres buscar? " style="border-radius: 10px;" >
-						<a href="Search.html"><i class="fas fa-search" style="font-size: 20px"></i></a>
-					</form>
-		    </div>
-
    </header>
    
    <section id="sectionLogin">
+   
+   
+   
 	<br>
 		<br>
 		<div style="color: #24DDDD;">
@@ -53,7 +43,7 @@
 		      Bienvenidos a DesignApp
 		      <br>
 		      <br>
-		      <a href="Registro.html" style="color:#24DDDD;">No estás registrado? Registrate ahora</a>
+		      <a style="color:#24DDDD;" onClick="register()">No estás registrado? Registrate ahora</a>
 		 </div>
 	</center>
 
@@ -66,32 +56,40 @@
 			<figure>
 			<img src="foto1.jpg"  style="width:120px;height: 100px">
 				<figcaption>
-					<h3>Autor:</h3>
-					<p>Laura López</p>
+					
+					<center><p>Laura López</p></center>
+					<i class="far fa-heart"></i>
+					<i class="far fa-comment" style ="float:right;"></i>
 				</figcaption>
 			</figure>
 
 			<figure>
 				<img src="foto2.jpg"  style="width:120px;height: 100px">
 				<figcaption>
-					<h3>Autor:</h3>
-					<p>Laura López</p>
+					
+					<center><p>Laura López</p></center>
+					<i class="far fa-heart"></i>
+					<i class="far fa-comment" style ="float:right;"></i>
 				</figcaption>
 			</figure>
 
 			<figure>
 				<img src="foto1.jpg"  style="width:120px;height: 100px">
 				<figcaption>
-					<h3>Autor:</h3>
-					<p>Laura López</p>
+					
+					<center><p>Laura López</p></center>
+					<i class="far fa-heart"></i>
+					<i class="far fa-comment" style ="float:right;"></i>
 				</figcaption>
 			</figure>
 
 			<figure>
 				<img src="foto3.jpg"  style="width:120px;height: 100px">
 				<figcaption>
-					<h3>Autor:</h3>
-					<p>Laura López</p>
+					
+					<center><p>Laura López</p></center>
+					<i class="far fa-heart"></i>
+					<i class="far fa-comment" style ="float:right;"></i>
 				</figcaption>
 			</figure>
 
@@ -100,9 +98,31 @@
 
 
 	</section>
+	
+	<section class="registro">
+
+	<div style="color: #16DFDF">
+		<form action="login.html" method="GET" >
+			<center>
+		<p>NombreUsuario:</p> <input type=“text” placeholder="usuario" name="usuario" required />
+		            <br>
+		            <br>
+	   <p>Contraseña:</p>  <input type="password" placeholder="contra" name="contrasenya"  required />
+		            <br>
+		            <br>
+       <p>Fecha de nacimiento:</p> <input type="date of birth" placeholder="fecha de nacimiento" name="fecha de nacimiento" required=""/>   
+		            <br>
+		            <br>
+                <input type="submit" value="OK" title="Click">
+			</center> 	
+		        
+		</form>
+	</div>
+	
+</section>
 			
 
-   <footer>
+   <footer id="indexfot">
    	
    		<div>
  			<a href="https://es-es.facebook.com/">

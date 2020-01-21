@@ -40,13 +40,12 @@ header a:hover{
 }
 
 
-
 /*Section*/
 section#sectionLogin input{
 	border-radius: 10px;
 	border-color: #24DDDD;
 	background-color: #d9dada;
-	text-transform: capitalize;
+	
 }
 section#sectionLogin  div{
 	border: double;
@@ -97,10 +96,25 @@ section.best article figure figcaption{
   background-color: #D7EEED;
 
 }
+section.registro{
+    display:none;
+}
+section.registro input{
+	border-radius: 10px;
+	border-color: #16DFDF;
+	background-color: #d9dada;
+	text-transform: capitalize;
+}
+section.registro div{
+	border: double;
+	padding: 10px;
+	margin: auto;
+}
+
 /*Footer*/
 
 footer{
-  display: flex;
+  display: none;
   flex-direction: column;
   align-items: center;
   padding: 5em 0;

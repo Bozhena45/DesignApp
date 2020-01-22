@@ -26,6 +26,14 @@ socket.onmessage = function(event) {
         document.getElementById("indexfot").style.display="flex";
         
     }
+    if (mensaje.action == "registrar")
+    {
+      
+        document.getElementsByClassName("registro")[0].style.display="none";
+        document.getElementsByClassName("best")[0].style.display="block";
+        document.getElementById("indexfot").style.display="flex";
+        
+    }
 
 };
 
@@ -64,13 +72,13 @@ function deletePhoto()
 
 }
 
-function createUser(nombre,correoElectronico,contrasenya)
+function createUser()
 {
 
    var idMensaje = getIdMessage();
-   var name = nombre;
-   var email = correoElectronico;
-   var password = contrasenya;
+   var name = document.getElementById("nameUsuario").value;
+   var email = document.getElementById("emailUsuario").value;
+   var password = document.getElementById("contraUsuario").value;
 
    var crearUsuario = {action:"crearUsuario",id:idMensaje,nombre:name,correoElectronico:email,contrasenya:password};
    socket.send(JSON.stringify(crearUsuario));
@@ -95,7 +103,7 @@ function register()
     
     document.getElementById("sectionLogin").style.display="none";
     document.getElementsByClassName("registro")[0].style.display="block";
-  
+    
 }
 function logout()
 {

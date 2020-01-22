@@ -111,8 +111,11 @@ int main()
 
                                 if (action == "crearUsuario")
                                 {
-                                    //json respuesta = User::createUser(receivedObject["nombre"],receivedObject["correoElectronico"],receivedObject["contrasenya"], receivedObject["id"]);
-                                    //webSocket->send(respuesta.dump());
+                                    User usuario(receivedObject["nombre"],receivedObject["correoElectronico"],receivedObject["contrasenya"]);
+                                    usuario.createUser();
+                                    json respuesta = usuario.toJSON();
+                                    respuesta["action"] = "registrar";
+                                    webSocket->send(respuesta.dump());
 
                                 } // end if
 

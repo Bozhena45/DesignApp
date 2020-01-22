@@ -23,10 +23,13 @@
    
 	<br>
 		<br>
+		<center><h2 style="color:#7f8c8d; text-shadow: 1px 1px 1px;">Bienvenidos a DesignApp</h2></center>
 		<div style="color: #24DDDD;">
 		
 			<center>
-			<p>LOGIN</p>
+			
+			<p style="color:#7f8c8d;text-shadow: 1px 1px 1px;">LOGIN</p>
+			
 			   <form action="html/MiAplicacion.html" method="GET">
 				 	
 		        <input id="email" type=“text” placeholder="email" name="usuario" required />
@@ -40,10 +43,10 @@
 
 		      </form>
               <br>
-		      Bienvenidos a DesignApp
+		      
 		      <br>
 		      <br>
-		      <a style="color:#24DDDD;" onClick="register()">No estás registrado? Registrate ahora</a>
+		      <a style="color:#d6dbdf;" onClick="register()">No estás registrado? Registrate ahora</a>
 		 </div>
 	</center>
 
@@ -104,16 +107,16 @@
 	<div style="color: #16DFDF">
 		<form action="login.html" method="GET" >
 			<center>
-		<p>NombreUsuario:</p> <input type=“text” placeholder="usuario" name="usuario" required />
+		<p>NombreUsuario:</p> <input id="nameUsuario" type=“text” placeholder="usuario" name="usuario" required />
 		            <br>
 		            <br>
-	   <p>Contraseña:</p>  <input type="password" placeholder="contra" name="contrasenya"  required />
+	   <p>Contraseña:</p>  <input id="contraUsuario" type="password" placeholder="contra" name="contrasenya"  required />
 		            <br>
 		            <br>
-       <p>Fecha de nacimiento:</p> <input type="date of birth" placeholder="fecha de nacimiento" name="fecha de nacimiento" required=""/>   
+       <p>Email:</p> <input id="emailUsuario" type="text" placeholder="email" name="email" required=""/>   
 		            <br>
 		            <br>
-                <input type="submit" value="OK" title="Click">
+                <input type="button" value="OK" title="Click" onClick="createUser()">
 			</center> 	
 		        
 		</form>

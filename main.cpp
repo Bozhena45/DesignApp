@@ -15,7 +15,7 @@
 
 
 using json = nlohmann::json;
-
+///Nos conectamos a la bbdd pasandole el hostname,el nombre de la bbdd,el puerto,el usuario y contraseña si es que tiene
 bool connectBBDD()
 {
   QSqlDatabase bbdd = QSqlDatabase::addDatabase("QPSQL");
@@ -109,6 +109,10 @@ int main()
 
                                 } // end if
 
+                                ///CREAR USUARIO
+                                ///Utilizamos la acción crearUsuario que es la que tenemos en nuestro javascript
+                                ///Cogemos los parámetros necesarios para poder crear nuestro usuario
+                                ///Y por último nos devolverá la respuesta pedida por el cliente
                                 if (action == "crearUsuario")
                                 {
                                     User usuario(receivedObject["nombre"],receivedObject["correoElectronico"],receivedObject["contrasenya"]);
@@ -126,6 +130,10 @@ int main()
 
                                 } //end if
 
+                                ///HACER EL LOGIN
+                                ///Utilizamos la acción entrar que es la que tenemos en nuestro javascript
+                                ///Cogemos los parámetros necesarios para poder entrar con nuestro usuario
+                                ///Y por último nos devolverá la respuesta pedida por el cliente
                                 if (action == "entrar")
                                 {
                                     std::string email = receivedObject["email"];

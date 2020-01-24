@@ -7,6 +7,7 @@ using json = nlohmann::json;
 class User
 {
 public:
+    ///Los metodos
     User(std::string nombre,std::string email,std::string password);
     void createUser();
 
@@ -18,6 +19,7 @@ public:
 
 
 private:
+    ///Los parámetros del usuario
     int m_id;
     std::string m_nombre;
     std::string m_email;

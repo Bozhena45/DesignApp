@@ -38,6 +38,8 @@ json User::userList(json& mensaje)
 
 }
 ///2)Crear usuario:
+/// 2.1) Hacemos la query del insert(para añadir un nuevo usuario a la bbdd)
+/// 2.2) Lo pasamos a JSON
 void User::createUser()
 {
 
@@ -64,7 +66,10 @@ json User::toJSON()
 }
 
 
-///Buscar usuarios en la bbdd:
+///3)Buscar usuarios en la bbdd:
+/// 3.1)Creamos el metodo load al que le pasamos los parámetros necesarios
+/// 3.2)Hacemos la select para buscar el usuario en la bbdd apartir de los parámetros
+/// 3.3)Pasamos todas los valores en string para poder luego coger los datos y devolver el usuario pedido
 
 User User::load(std::string usuario,std::string contrasenya)
 {

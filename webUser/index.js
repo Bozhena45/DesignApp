@@ -24,6 +24,7 @@ socket.onmessage = function(event) {
         document.getElementById("sectionLogin").style.display="none";
         document.getElementsByClassName("best")[0].style.display="block";
         document.getElementById("indexfot").style.display="flex";
+        document.getElementById("buscar").style.display="inline";
         
     }
     if (mensaje.action == "registrar")

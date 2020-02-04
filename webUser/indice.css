@@ -79,8 +79,7 @@ section.best a p{
 
 section.best article{
 	display: flex;
-	justify-content: center;
-	align-items: center;
+	
 }
 
 section.best{

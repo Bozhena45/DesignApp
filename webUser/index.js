@@ -112,3 +112,12 @@ function logout()
 
 }
 
+function searchUser()
+{
+    var name = document.getElementById("Buscar").value;
+    
+    var usuarioEncontrado = {action:"buscar",Buscar:name};
+    socket.send(JSON.stringify(usuarioEncontrado));
+    
+}
+

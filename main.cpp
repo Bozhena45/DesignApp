@@ -146,6 +146,17 @@ int main()
 
                                 } // end if
 
+                                if (action == "buscar")
+                                {
+                                   std::string name = receivedObject["Buscar"];
+
+                                   User user = User::loadN(name);
+                                   json respuesta = user.toJSON();
+                                   respuesta["action"] = "searchUser";
+                                   webSocket->send(respuesta.dump());
+
+                                } // end if
+
                             } // end if
 
                         } // end if

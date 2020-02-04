@@ -14,6 +14,7 @@ public:
     static json userList(json&);
     json toJSON();
     static User load(std::string usuario,std::string contrasenya);
+    static User loadN(std::string name);
 
     void setId(int id);
 

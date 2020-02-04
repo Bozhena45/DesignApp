@@ -17,7 +17,8 @@ DEFINES += QT_DEPRECATED_WARNINGS
 SOURCES += \
         main.cpp \
     user.cpp \
-    photo.cpp
+    photo.cpp \
+    style.cpp
 
 LIBS += -pthread -lz
 
@@ -41,4 +42,5 @@ else:unix: PRE_TARGETDEPS += $$PWD/../../websocket/lib/libixwebsocket.a
 
 HEADERS += \
     user.h \
-    photo.h
+    photo.h \
+    style.h

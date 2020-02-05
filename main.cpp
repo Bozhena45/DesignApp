@@ -41,6 +41,16 @@ int main()
 
     ix::WebSocketServer server(9990, "0.0.0.0");
 
+    ix::SocketTLSOptions tlsOptions;
+
+    tlsOptions.tls = true;
+    tlsOptions.certFile = "/home/usuario/cert/localhost/archivoSalida.crt";
+    tlsOptions.keyFile = "/home/usuario/cert/localhost/serverSSL.key";
+    tlsOptions.caFile = "NONE";
+
+
+    server.setTLSOptions(tlsOptions);
+
     server.setOnConnectionCallback(
         [&server](std::shared_ptr<ix::WebSocket> webSocket,
                   std::shared_ptr<ix::ConnectionState> connectionState)

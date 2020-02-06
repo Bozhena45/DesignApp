@@ -1,5 +1,5 @@
 
-let socket = new WebSocket("ws://127.0.0.1:9990");
+let socket = new WebSocket("wss://localhost:9990");
 
 var g_idMessage = 0;
 

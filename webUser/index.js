@@ -35,7 +35,14 @@ socket.onmessage = function(event) {
         document.getElementById("indexfot").style.display="flex";
         
     }
-
+    
+   /* if (mensaje.action == "buscarUser")
+    {
+        document.getElementById("sectionLogin").style.display="none";
+        document.getElementById("buscarUsuarioSection")[0].style.display="block";
+        document.getElementById("indexfot").style.display="flex";
+        
+    }*/
 };
 
 socket.onclose = function(event) {

@@ -36,13 +36,15 @@ socket.onmessage = function(event) {
         
     }
     
-   /* if (mensaje.action == "buscarUser")
+    if (mensaje.action == "searchUser")
     {
-        document.getElementById("sectionLogin").style.display="none";
-        document.getElementById("buscarUsuarioSection")[0].style.display="block";
-        document.getElementById("indexfot").style.display="flex";
         
-    }*/
+        document.getElementById("buscarUsuarioSection").style.display="block";
+        document.getElementsByClassName("best")[0].style.display="none";
+        document.getElementById("buscarUsuario").style.display="block";
+        document.getElementById("headerPrincipal").style.display="none";
+        
+    }
 };
 
 socket.onclose = function(event) {
@@ -113,15 +115,11 @@ function register()
     document.getElementsByClassName("registro")[0].style.display="block";
     
 }
-function logout()
-{
 
-
-}
 
 function searchUser()
 {
-    var name = document.getElementById("Buscar").value;
+    var name = document.getElementById("buscarTxt").value;
     
     var usuarioEncontrado = {action:"buscar",Buscar:name};
     socket.send(JSON.stringify(usuarioEncontrado));

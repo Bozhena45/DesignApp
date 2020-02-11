@@ -167,6 +167,17 @@ int main()
 
                                 } // end if
 
+                                if (action == "like")
+                                {
+
+
+                                } //end if
+
+                                if (action == "comment")
+                                {
+
+                                } //end if
+
                             } // end if
 
                         } // end if

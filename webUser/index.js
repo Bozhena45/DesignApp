@@ -126,3 +126,22 @@ function searchUser()
     
 }
 
+function like()
+{
+    var like = document.getElementsByClassName("far fa-heart").value;
+    
+    var likePhoto = {action:"like",Like:like};
+    socket.send(JSON.stringify(likePhoto));
+}
+
+function comment()
+{
+    var comment = document.getElementsByClassName("far fa-comment").value;
+    
+    var commentPhoto = {action:"comment",Coment:comment};
+    socket.send(JSON.stringify(commentPhoto));
+    
+}
+
+
+

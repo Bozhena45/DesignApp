@@ -10,10 +10,16 @@ public:
     Photo();
     static json photoList(json&);
     static json deletePhoto(json&);
-public:
-    std::string url;
-    std::string like;
-    std::string size;
+
+    Photo(std::string url,std::string like,std::string size);
+    void createPhoto();
+
+    void setId(int id);
+private:
+    int m_id;
+    std::string m_url;
+    std::string m_like;
+    std::string m_size;
 };
 
 #endif // PHOTO_H

@@ -25,6 +25,8 @@ json Photo::photoList(json& mensaje)
     return respuesta;
 }
 
+
+
 json Photo::deletePhoto(json& mensaje)
 {
     json persona1;

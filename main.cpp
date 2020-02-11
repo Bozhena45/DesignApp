@@ -140,6 +140,11 @@ int main()
 
                                 } //end if
 
+                                if (action == "subirFoto")
+                                {
+
+                                } //end if
+
                                 ///HACER EL LOGIN
                                 ///Utilizamos la acción entrar que es la que tenemos en nuestro javascript
                                 ///Cogemos los parámetros necesarios para poder entrar con nuestro usuario

@@ -143,5 +143,13 @@ function comment()
     
 }
 
+function subirFoto()
+{
+    var photo = document.getElementById("subirFoto").value;
+    
+    var subirFoto = {action:"subirFoto",Subir:photo};
+    socket.send(JSON.stringify(subirFoto));
+}
+
 
 

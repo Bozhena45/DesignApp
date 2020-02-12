@@ -1,12 +1,11 @@
-#include "basedatos.h"
+#include "bbdd.h"
 
-BaseDatos::BaseDatos()
+Bbdd::Bbdd()
 {
 
 }
 
-bool BaseDatos::init()
-{
+bool Bbdd::init(){
 
     m_database = QSqlDatabase::addDatabase("QPSQL");
     m_database.setHostName("localhost");
@@ -48,8 +47,3 @@ bool BaseDatos::init()
 
         return ok;
     }
-
-
-
-
-

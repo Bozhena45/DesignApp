@@ -1,6 +1,7 @@
 #define DOCTEST_CONFIG_IMPLEMENT
 #include <iostream>
 #include "doctest.h"
+#include "basedatos.h"
 
 
 ///Copiado de la página github.doctest

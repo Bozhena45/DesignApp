@@ -1,6 +1,6 @@
 #include "designapp.h"
 #include "doctest.h"
-#include "basedatos.h"
+#include "bbdd.h"
 
 DesignApp::DesignApp()
 {
@@ -13,7 +13,7 @@ int DesignApp::suma()
 
 TEST_CASE("basedatos") {
 
-    BaseDatos bd;
+    Bbdd bd;
     CHECK(bd.init() == true);
 
 }

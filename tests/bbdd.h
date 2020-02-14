@@ -12,9 +12,14 @@
 
 class Bbdd
 {
+
 public:
     Bbdd();
+    ~Bbdd();
     bool init();
+    void close();
+    QSqlError lastError();
+    bool insert();
 
 private:
     QSqlDatabase m_database;

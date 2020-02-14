@@ -1,8 +1,11 @@
 TEMPLATE = app
-CONFIG += console c++11
+QT -= gui
+QT += sql
+
+CONFIG += c++11 console
 CONFIG -= app_bundle
 
-QT  += sql
+DEFINES += QT_DEPRECATED_WARNINGS
 
 SOURCES += \
         main.cpp \

@@ -13,7 +13,26 @@ int DesignApp::suma()
 
 TEST_CASE("basedatos") {
 
-    Bbdd bd;
-    CHECK(bd.init() == true);
+    Bbdd db;
+    int ok = db.init();
+
+    if (ok)
+    {
+
+        SUBCASE("Insertar #0")
+        {
+            CHECK( db.insert() == true );
+        }
+
+        SUBCASE("Insertar #0")
+        {
+            CHECK( db.insert() == true );
+        }
+    }
+    else
+    {
+        qDebug() << db.lastError().text();
+
+    } // end if
 
 }

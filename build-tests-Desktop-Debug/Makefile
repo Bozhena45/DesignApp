@@ -12,10 +12,10 @@ MAKEFILE      = Makefile
 
 CC            = gcc
 CXX           = g++
-DEFINES       = -DQT_QML_DEBUG -DQT_GUI_LIB -DQT_SQL_LIB -DQT_CORE_LIB
+DEFINES       = -DQT_DEPRECATED_WARNINGS -DQT_QML_DEBUG -DQT_SQL_LIB -DQT_CORE_LIB
 CFLAGS        = -pipe -g -Wall -W -D_REENTRANT -fPIC $(DEFINES)
 CXXFLAGS      = -pipe -g -std=gnu++11 -Wall -W -D_REENTRANT -fPIC $(DEFINES)
-INCPATH       = -I../tests -I. -isystem /usr/include/qt5 -isystem /usr/include/qt5/QtGui -isystem /usr/include/qt5/QtSql -isystem /usr/include/qt5/QtCore -I. -isystem /usr/include/libdrm -I/usr/lib64/qt5/mkspecs/linux-g++
+INCPATH       = -I../tests -I. -isystem /usr/include/qt5 -isystem /usr/include/qt5/QtSql -isystem /usr/include/qt5/QtCore -I. -I/usr/lib64/qt5/mkspecs/linux-g++
 QMAKE         = /usr/bin/qmake-qt5
 DEL_FILE      = rm -f
 CHK_DIR_EXISTS= test -d
@@ -38,7 +38,7 @@ DISTNAME      = tests1.0.0
 DISTDIR = /home/usuario/Servidores/ServidorDesignApp/build-tests-Desktop-Debug/.tmp/tests1.0.0
 LINK          = g++
 LFLAGS        = 
-LIBS          = $(SUBLIBS) -lQt5Gui -L/usr/lib64 -lQt5Sql -lQt5Core -lGL -lpthread 
+LIBS          = $(SUBLIBS) -lQt5Sql -L/usr/lib64 -lQt5Core -lpthread 
 AR            = ar cqs
 RANLIB        = 
 SED           = sed
@@ -224,7 +224,6 @@ DIST          = /usr/lib64/qt5/mkspecs/features/spec_pre.prf \
 		/usr/lib64/qt5/mkspecs/features/qt.prf \
 		/usr/lib64/qt5/mkspecs/features/resources.prf \
 		/usr/lib64/qt5/mkspecs/features/moc.prf \
-		/usr/lib64/qt5/mkspecs/features/unix/opengl.prf \
 		/usr/lib64/qt5/mkspecs/features/unix/thread.prf \
 		/usr/lib64/qt5/mkspecs/features/qmake_use.prf \
 		/usr/lib64/qt5/mkspecs/features/file_copies.prf \
@@ -415,7 +414,6 @@ Makefile: ../tests/tests.pro /usr/lib64/qt5/mkspecs/linux-g++/qmake.conf /usr/li
 		/usr/lib64/qt5/mkspecs/features/qt.prf \
 		/usr/lib64/qt5/mkspecs/features/resources.prf \
 		/usr/lib64/qt5/mkspecs/features/moc.prf \
-		/usr/lib64/qt5/mkspecs/features/unix/opengl.prf \
 		/usr/lib64/qt5/mkspecs/features/unix/thread.prf \
 		/usr/lib64/qt5/mkspecs/features/qmake_use.prf \
 		/usr/lib64/qt5/mkspecs/features/file_copies.prf \
@@ -424,7 +422,6 @@ Makefile: ../tests/tests.pro /usr/lib64/qt5/mkspecs/linux-g++/qmake.conf /usr/li
 		/usr/lib64/qt5/mkspecs/features/yacc.prf \
 		/usr/lib64/qt5/mkspecs/features/lex.prf \
 		../tests/tests.pro \
-		/usr/lib64/libQt5Gui.prl \
 		/usr/lib64/libQt5Sql.prl \
 		/usr/lib64/libQt5Core.prl
 	$(QMAKE) -o Makefile ../tests/tests.pro -spec linux-g++ CONFIG+=debug CONFIG+=qml_debug
@@ -596,7 +593,6 @@ Makefile: ../tests/tests.pro /usr/lib64/qt5/mkspecs/linux-g++/qmake.conf /usr/li
 /usr/lib64/qt5/mkspecs/features/qt.prf:
 /usr/lib64/qt5/mkspecs/features/resources.prf:
 /usr/lib64/qt5/mkspecs/features/moc.prf:
-/usr/lib64/qt5/mkspecs/features/unix/opengl.prf:
 /usr/lib64/qt5/mkspecs/features/unix/thread.prf:
 /usr/lib64/qt5/mkspecs/features/qmake_use.prf:
 /usr/lib64/qt5/mkspecs/features/file_copies.prf:
@@ -605,7 +601,6 @@ Makefile: ../tests/tests.pro /usr/lib64/qt5/mkspecs/linux-g++/qmake.conf /usr/li
 /usr/lib64/qt5/mkspecs/features/yacc.prf:
 /usr/lib64/qt5/mkspecs/features/lex.prf:
 ../tests/tests.pro:
-/usr/lib64/libQt5Gui.prl:
 /usr/lib64/libQt5Sql.prl:
 /usr/lib64/libQt5Core.prl:
 qmake: FORCE

@@ -1,14 +1,12 @@
 #define DOCTEST_CONFIG_IMPLEMENT
 #include <QCoreApplication>
-#include <iostream>
-#include "doctest.h"
-#include "bbdd.h"
+#include "app.h"
 
 int main(int argc, char *argv[])
 {
     QCoreApplication a(argc, argv);
 
-    Bbdd app;
+    App app;
 
     return a.exec();
 }

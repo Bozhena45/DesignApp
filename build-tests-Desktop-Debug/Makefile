@@ -232,7 +232,8 @@ DIST          = /usr/lib64/qt5/mkspecs/features/spec_pre.prf \
 		/usr/lib64/qt5/mkspecs/features/yacc.prf \
 		/usr/lib64/qt5/mkspecs/features/lex.prf \
 		../tests/tests.pro ../tests/designapp.h \
-		../tests/bbdd.h ../tests/main.cpp \
+		../tests/bbdd.h \
+		../tests/doctest.h ../tests/main.cpp \
 		../tests/designapp.cpp \
 		../tests/bbdd.cpp
 QMAKE_TARGET  = tests
@@ -618,7 +619,7 @@ distdir: FORCE
 	@test -d $(DISTDIR) || mkdir -p $(DISTDIR)
 	$(COPY_FILE) --parents $(DIST) $(DISTDIR)/
 	$(COPY_FILE) --parents /usr/lib64/qt5/mkspecs/features/data/dummy.cpp $(DISTDIR)/
-	$(COPY_FILE) --parents ../tests/designapp.h ../tests/bbdd.h $(DISTDIR)/
+	$(COPY_FILE) --parents ../tests/designapp.h ../tests/bbdd.h ../tests/doctest.h $(DISTDIR)/
 	$(COPY_FILE) --parents ../tests/main.cpp ../tests/designapp.cpp ../tests/bbdd.cpp $(DISTDIR)/
 
 
@@ -666,7 +667,7 @@ compiler_clean: compiler_moc_predefs_clean
 ####### Compile
 
 main.o: ../tests/main.cpp ../tests/doctest.h \
-		../tests/basedatos.h
+		../tests/bbdd.h
 	$(CXX) -c $(CXXFLAGS) $(INCPATH) -o main.o ../tests/main.cpp
 
 designapp.o: ../tests/designapp.cpp ../tests/designapp.h \
@@ -679,9 +680,18 @@ bbdd.o: ../tests/bbdd.cpp ../tests/bbdd.h
 
 ####### Install
 
-install:  FORCE
+install_target: first FORCE
+	@test -d $(INSTALL_ROOT)/opt/tests/bin || mkdir -p $(INSTALL_ROOT)/opt/tests/bin
+	-$(QINSTALL_PROGRAM) $(QMAKE_TARGET) $(INSTALL_ROOT)/opt/tests/bin/$(QMAKE_TARGET)
 
-uninstall:  FORCE
+uninstall_target: FORCE
+	-$(DEL_FILE) $(INSTALL_ROOT)/opt/tests/bin/$(QMAKE_TARGET)
+	-$(DEL_DIR) $(INSTALL_ROOT)/opt/tests/bin/ 
+
+
+install: install_target  FORCE
+
+uninstall: uninstall_target  FORCE
 
 FORCE:
 

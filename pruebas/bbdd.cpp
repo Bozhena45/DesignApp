@@ -25,13 +25,15 @@ bool Bbdd::insert()
     query.prepare("INSERT INTO style (tipo) VALUES (:tipo)");
     query.bindValue(":tipo", "roquero");
 
+   /// 3)INSERTAR EN LA BBDD TIPO DE PHOTO
+        query.prepare("INSERT INTO imagenes (uurl,siize,liike) VALUES (:uurl,:siize,:liike)");
+        query.bindValue(":uurl", "afasf");
+        query.bindValue(":siize", "0.5");
+        query.bindValue(":liike", "20");
 
     bool result = query.exec();
     qDebug() << query.lastError().text();
     return result;
-
-
-
 
 
 }
@@ -70,11 +72,11 @@ bool Bbdd::init()
     if (ok)
     {
 
-        qDebug() << "Borrando...";
+        qDebug() << "La bbdd se está borrando...";
         QSqlQuery q0("DROP DATABASE IF EXISTS app_doctest", m_db);
         if (q0.lastError().type() == QSqlError::NoError)
         {
-            qDebug() << "Creando...";
+            qDebug() << "La bbdd se está creando...";
             QSqlQuery q1("CREATE DATABASE app_doctest", m_db);
             if (q1.lastError().type() == QSqlError::NoError)
             {
@@ -97,10 +99,22 @@ bool Bbdd::init()
                tipo   varchar(40), \
                PRIMARY KEY(idtipo) \
                                 )"};
-                qDebug() << "Iniciando...";
-                QSqlQuery q3(sql1, m_db);
-                QSqlQuery q2(sql2, m_db);
-                if (q2.lastError().type() == QSqlError::NoError)
+
+             QString sql3 {"CREATE TABLE imagenes ( \
+                idphoto  SERIAL, \
+                uurl   varchar(40), \
+                siize   varchar(40), \
+                liike   varchar(40), \
+                PRIMARY KEY(idphoto) \
+                                        )"};
+
+                qDebug() << "Iniciando bbdd...";
+
+                QSqlQuery q2(sql1, m_db);
+                QSqlQuery q3(sql2, m_db);
+                QSqlQuery q4(sql3, m_db);
+
+                if ((q2.lastError().type() == QSqlError::NoError)|| (q3.lastError().type() == QSqlError::NoError) )
                 {
                     result = true;
                 } // end if

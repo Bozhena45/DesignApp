@@ -11,12 +11,29 @@ Bbdd::~Bbdd()
 
 bool Bbdd::insert()
 {
+
+
     QSqlQuery query(m_db);
-    query.prepare("INSERT INTO usuario VALUES (:usuario)");
-    query.bindValue(":usuario", "idUsuario");
+
+     /// 1)INSERTAR EN LA BBDD UN USUARIO
+    query.prepare("INSERT INTO usuario (nombre,email,password) VALUES (:nombre,:email,:password)");
+    query.bindValue(":nombre", "Paquito");
+    query.bindValue(":email", "Paquito@gmail.com");
+    query.bindValue(":password", "44");
+
+     /// 2)INSERTAR EN LA BBDD TIPO DE ESTILO
+    query.prepare("INSERT INTO style (tipo) VALUES (:tipo)");
+    query.bindValue(":tipo", "roquero");
+
+
     bool result = query.exec();
     qDebug() << query.lastError().text();
     return result;
+
+
+
+
+
 }
 
 Bbdd::Bbdd()
@@ -66,14 +83,23 @@ bool Bbdd::init()
                 m_db.open();
 
                 /// Crea estructura en la base de datos
-                QString sql {"CREATE TABLE tabla ( \
-                    id_usuario  SERIAL, \
+                QString sql1 {"CREATE TABLE usuario ( \
+                    idUsuario  SERIAL, \
                     nombre   varchar(40), \
-                    PRIMARY KEY(id_tabla) \
+                    email   varchar(40), \
+                    password   varchar(40), \
+                            PRIMARY KEY(idUsuario) \
                 )"};
 
+
+               QString sql2 {"CREATE TABLE style ( \
+               idtipo  SERIAL, \
+               tipo   varchar(40), \
+               PRIMARY KEY(idtipo) \
+                                )"};
                 qDebug() << "Iniciando...";
-                QSqlQuery q2(sql, m_db);
+                QSqlQuery q3(sql1, m_db);
+                QSqlQuery q2(sql2, m_db);
                 if (q2.lastError().type() == QSqlError::NoError)
                 {
                     result = true;

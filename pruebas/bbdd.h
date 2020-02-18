@@ -17,6 +17,7 @@ public:
     void close();
     QSqlError lastError();
     bool insert();
+    //bool load(std::string nombre);
 };
 
 #endif // BBDD_H

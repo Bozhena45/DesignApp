@@ -1,5 +1,9 @@
 QT -= gui
 QT += sql
+
+TRANSLATIONS  += ServidorDesignApp_es_ES.ts
+TRANSLATIONS  += ServidorDesignApp_en_US.ts
+
 CONFIG += c++11 console
 CONFIG -= app_bundle
 

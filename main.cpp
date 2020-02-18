@@ -4,6 +4,9 @@
 #include <QSqlQuery>
 #include <QSqlRecord>
 #include <QString>
+#include <QTranslator>
+#include <QDebug>
+#include <QCoreApplication>
 #include "ixwebsocket/IXWebSocketServer.h"
 #include "ixwebsocket/IXWebSocket.h"
 #include "ixwebsocket/IXConnectionState.h"
@@ -35,8 +38,18 @@ bool existe(const json& json, const std::string& key)
     return json.find(key) != json.end();
 }
 
-int main()
+int main(int argc, char *argv[])
 {
+    ///Traducciones:
+
+    QCoreApplication a(argc,argv);
+    QTranslator myAppTranslator;
+    if ( myAppTranslator.load("ServidorDesignApp_es_ES"))
+    {
+        a.installTranslator(&myAppTranslator);
+    }
+
+
     connectBBDD();
 
     ix::WebSocketServer server(9990, "0.0.0.0");
@@ -60,7 +73,8 @@ int main()
                 {
                     if (msg->type == ix::WebSocketMessageType::Open)
                     {
-                        std::cout << "New connection" << std::endl;
+                        //std::cout << "New connection" << std::endl;
+                        qDebug() << QObject::tr("New connection");
                         ///Tipos de mensaje;
                         ///  1) Mensaje que no espera respuesta.
                         ///  2) Mensaje que sea una respuesta a una petición previa.
@@ -130,6 +144,7 @@ int main()
                                     json respuesta = usuario.toJSON();
                                     respuesta["action"] = "registrar";
                                     webSocket->send(respuesta.dump());
+                                    qDebug() << QObject::tr("registered user");
 
                                 } // end if
 

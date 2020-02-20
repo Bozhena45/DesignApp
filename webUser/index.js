@@ -21,10 +21,18 @@ socket.onmessage = function(event) {
     if (mensaje.action == "login")
     {
       
-        document.getElementById("sectionLogin").style.display="none";
-        document.getElementsByClassName("best")[0].style.display="block";
-        document.getElementById("indexfot").style.display="flex";
-        document.getElementById("buscar").style.display="inline";
+        if(mensaje.nombre=="")
+        {
+            document.getElementById("errorContra").style.display="block";
+        }
+        else {
+            document.getElementById("sectionLogin").style.display="none";
+            document.getElementsByClassName("best")[0].style.display="block";
+            document.getElementById("indexfot").style.display="flex";
+            document.getElementById("buscar").style.display="inline";
+        }
+        
+        
         
     }
     if (mensaje.action == "registrar")

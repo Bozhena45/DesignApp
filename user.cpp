@@ -44,7 +44,7 @@ void User::createUser()
 {
 
     QSqlQuery query;
-    query.prepare("INSERT into usuario (name,email,password) values (:nombre,:email,:passw)");
+    query.prepare("INSERT into usuario (name,email,password) values (:nombre,:email,crypt(:passw,gen_salt('bf')))");
 
 
     query.bindValue(":nombre", QString::fromStdString(m_nombre));
@@ -75,24 +75,42 @@ User User::load(std::string usuario,std::string contrasenya)
 {
 
     User u("","","");
+    bool contrasenyaCorrecta = false;
 
-    QSqlQuery query;
-    query.prepare("SELECT * from usuario where email = :usuario and password = :contrasenya ");
-    query.bindValue(":usuario",QString::fromStdString(usuario));
-    query.bindValue(":contrasenya",QString::fromStdString(contrasenya));
-    query.exec();
+    QSqlQuery queryPassword;
+    queryPassword.prepare("Select (password = crypt(:password, password)) as pwd_match from usuario where email = :email ");
+    queryPassword.bindValue(":password",QString::fromStdString(contrasenya));
+    queryPassword.bindValue(":email",QString::fromStdString(usuario));
+    queryPassword.exec();
 
-    QSqlRecord rec = query.record();
-    while(query.next())
+    QSqlRecord rec2 = queryPassword.record();
+    if (queryPassword.next())
     {
-        QString name = query.value("name").toString();
-        QString email = query.value("email").toString();
-        QString password = query.value("password").toString();
-
-        User usuario(name.toUtf8().constData(),email.toUtf8().constData(),password.toUtf8().constData());
-        usuario.setId(query.value("id_user").toInt());
-        return usuario;
+        contrasenyaCorrecta = QVariant(queryPassword.value("pwd_match")).toBool();
     }
+
+    qDebug() << contrasenyaCorrecta;
+
+    if (contrasenyaCorrecta)
+    {
+        QSqlQuery query;
+        query.prepare("SELECT * from usuario where email = :usuario");
+        query.bindValue(":usuario",QString::fromStdString(usuario));
+        query.exec();
+
+        QSqlRecord rec = query.record();
+        while(query.next())
+        {
+            QString name = query.value("name").toString();
+            QString email = query.value("email").toString();
+            QString password = query.value("password").toString();
+
+            User usuario(name.toUtf8().constData(),email.toUtf8().constData(),password.toUtf8().constData());
+            usuario.setId(query.value("id_user").toInt());
+            return usuario;
+        }
+    }
+
 
     return u;
 

@@ -13,6 +13,7 @@ public:
 
     Photo(std::string url,std::string like,std::string size);
     void createPhoto();
+    json toJSON();
 
     void setId(int id);
 private:

@@ -53,6 +53,8 @@ socket.onmessage = function(event) {
         document.getElementById("headerPrincipal").style.display="none";
         
     }
+    
+
 };
 
 socket.onclose = function(event) {
@@ -159,5 +161,21 @@ function subirFoto()
     socket.send(JSON.stringify(subirFoto));
 }
 
+function PerfilUsuario()
+{
+        document.getElementById("PerfilUser").style.display="block";
+        document.getElementsByClassName("best")[0].style.display="none";
+        document.getElementById("headerPerfilUsuario").style.display="block";
+        document.getElementById("headerPrincipal").style.display="none";
+}
+
+
+function subirFoto()
+{
+        document.getElementById("FotoYtipo").style.display="block";
+        document.getElementsByClassName("best")[0].style.display="none";
+        document.getElementById("headerPerfilUsuario").style.display="block";
+        document.getElementById("headerPrincipal").style.display="none";
+}
 
 

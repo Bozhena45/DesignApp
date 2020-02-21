@@ -15,14 +15,24 @@
    
    		<h1><i class="fas fa-tshirt" style="font-size: 30px;padding-right: 10px;">
  		</i>DesingApp <i class="fas fa-tshirt" style="font-size: 30px;padding-right: 10px;"></i></h1> 
+ 		
  		<div id="buscar">
 
  		<input  id="buscarTxt" type="text" name="Buscar" placeholder="¿A quién quieres buscar?" style="border-radius:10px;">
  		<i class="fas fa-search" onclick="searchUser()"></i>
- 		
+ 		<br>
+ 		<br>
+ 		<i class="fas fa-user-circle" style="font-size: 30px;" onclick="PerfilUsuario()"></i></a>
  		</div>
  		
  
+   </header>
+   
+   <header style = "display:none" id="headerPerfilUsuario">
+   
+      <h1><i class="fas fa-tshirt" style="font-size: 30px;padding-right: 10px;">
+ 		</i>DesingApp <i class="fas fa-tshirt" style="font-size: 30px;padding-right: 10px;"></i></h1> 
+   
    </header>
    
   <header id="buscarUsuario" style="padding: 1rem;">
@@ -32,7 +42,7 @@
  		<nav>
 			<span>  
 			<center><h2>Laura López</h2></center>
-			         <a href="" placeholder="login"><i class="fas fa-user-circle" style="font-size: 30px;"></i></a>
+			         
 			</span>
 		</nav>
    
@@ -41,10 +51,10 @@
    <section id="buscarUsuarioSection">
    
    <article>
-   <input id="subirFoto" value="↑" type="button" onClick="subirFoto()" style="border-radius:10px;">
+  
 			<figure>
-			<img src="foto3.jpg">
-			<input type="button" value="Eliminar foto" onClick="deletePhoto()">
+			<img src="foto1.jpg">  
+		 <!-- 	<input type="button" value="Eliminar foto" onClick="deletePhoto()"> -->
 				<figcaption>
 					<center><h3><p>Comentarios:</p></h3></center>
 					<figcaption>
@@ -55,8 +65,8 @@
 				</figcaption>
 			</figure>
 			<figure>
-			<img src="foto2.jpg">
-			<input type="button" value="Eliminar foto" onClick="deletePhoto()">
+			<img src="foto2.jpg">  
+			<!-- 	<input type="button" value="Eliminar foto" onClick="deletePhoto()"> -->
 				<figcaption>
 					<center><h3><p>Comentarios:</p></h3></center>
 					<figcaption>
@@ -70,6 +80,47 @@
 	</article>
    
    </section>
+   
+  <section id="PerfilUser">
+  
+        <article>
+        
+         <input id="subirFoto" value="↑" type="button" onClick="subirFoto()" style="border-radius:10px;">
+        <br>
+        <br>
+        <br>
+
+            <div  style =" border: double;padding: 60px;margin: auto;color: #24DDDD;"></div>
+        <br>
+        <br>
+           <div  style =" border: double;padding: 60px;margin: auto;color: #24DDDD;"></div>
+           
+        </article>
+  
+  </section>
+  
+  <section id="FotoYtipo">
+  
+  <form>
+                <input id="imagen" type=“text” placeholder="imagen" name="imagen" required />
+		            <br>
+		            <br>
+                        <select id="Estilo">
+                            <option value="roquero">roquero</option>
+                            <option value="casual">casual</option>
+                            <option value="clasico">clasico</option>
+                            <option value="hipster">hipster</option>
+                        </select>
+		            <br>
+		            <br>
+                <input type="button" value="OK" title="OK" onClick="subir()">
+  
+  </form>
+  
+  
+  
+  </section>
+  
   
    <section id="sectionLogin">
    
@@ -80,6 +131,7 @@
 		
 			<center>
 			
+			 <!-- Formulario para entrar a tu página con tu email y contrasenya -->
 			<p style="color:#7f8c8d;text-shadow: 1px 1px 1px;">LOGIN</p>
 			
 			   <form action="html/MiAplicacion.html" method="GET">
@@ -95,6 +147,8 @@
 
 		      </form>
 		      <br>
+		      
+		       <!-- DIV Dónde aparece el mensaje error si la contrasenya está mal -->
 		      
 		      <div id="errorContra" style="color: #e6b0aa;display:none ">
 		      

@@ -123,6 +123,19 @@ section.registro div{
 
 /*Section*/
 
+
+section#PerfilUser{
+    
+     display:none;
+    
+}
+
+section#FotoYtipo{
+    
+     display:none;
+    
+}
+
 section#buscarUsuarioSection,header#buscarUsuario{
     
     display:none;

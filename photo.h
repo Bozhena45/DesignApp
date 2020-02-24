@@ -8,7 +8,7 @@ class Photo
 {
 public:
     Photo();
-    Photo(std::string url,std::string like,std::string size,int idStyle,int idUser);
+    Photo(std::string url,int like,std::string size,int idStyle,int idUser);
     void createPhoto();
     json toJSON();
 
@@ -16,7 +16,7 @@ public:
 private:
     int m_id;
     std::string m_url;
-    std::string m_like;
+    int m_like;
     std::string m_size;
     int m_idStyle;
     int m_idUser;

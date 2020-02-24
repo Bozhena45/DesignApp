@@ -85,6 +85,11 @@ socket.onmessage = function(event) {
         
     }
     
+    if (mensaje.action == "subirFoto")
+    {
+        document.getElementById("FotosubidaExito").style.display="block";
+    }
+    
 
 };
 
@@ -188,8 +193,9 @@ function subirImagen()
 {
     var photo = document.getElementById("imagen").value;
     var style = document.getElementById("Estilo").value;
+    var id = user.id;
     
-    var subirFoto = {action:"subirFoto",imagen:photo,estilo:style};
+    var subirFoto = {action:"subirFoto",imagen:photo,estilo:style, idUser:id};
     socket.send(JSON.stringify(subirFoto));
 }
 

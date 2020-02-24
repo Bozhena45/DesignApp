@@ -96,12 +96,23 @@
 					<figcaption>
 						<p>->Me gusta mucho tu foto</p>
 						<p>->Me gusta el look, me hago el mismo</p>
-                        
+                         
+                             <table>
+                                    <tr>
+                                        <th>Likes</th>
+                                        <th>Comentarios</th>
+                                    <tr>
+                                    <tr>
+                                       <td>500</td>
+                                       <td>20</td>
+                                    <tr>
+                             </table>
+                   
 					</figcaption>
 				</figcaption>
 			</figure>
 			<figure>
-			<img src="foto2.jpg">  
+			<img src="foto1.jpg">  
 			<!-- 	<input type="button" value="Eliminar foto" onClick="deletePhoto()"> -->
 				<figcaption>
 					<center><h3><p>Comentarios:</p></h3></center>
@@ -121,7 +132,7 @@
   
         <article>
         
-         <input id="subirFoto" value="↑" type="button" onClick="subirFoto()" style="border-radius:10px;">
+        <input id="subirFoto"  type="button" onClick="subirFoto()" style="border-radius:10px;"/>
         <br>
         <br>
         <br>
@@ -140,7 +151,8 @@
   <section id="FotoYtipo">
   
   <form>
-                <input id="imagen" type=“text” placeholder="imagen" name="imagen" required />
+  <input id="Close" type="button"  name="imagen" required /> 
+                <input id="imagen" type=“text”  name="imagen" required />
 		            <br>
 		            <br>
                         <select id="Estilo">
@@ -155,7 +167,7 @@
   
   </form>
   
-  
+  <p id="FotosubidaExito">Foto subida con éxito</p>
   
   </section>
   

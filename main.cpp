@@ -149,7 +149,11 @@ int main(int argc, char *argv[])
 
                                     Style s;
                                     s.Load(receivedObject["estilo"]);
-                                    //Photo photo(receivedObject["imagen"],"","",s.getID(),0);
+                                    Photo photo(receivedObject["imagen"],0,"123",s.getID(),receivedObject["idUser"]);
+                                    photo.createPhoto();
+                                    json respuesta = photo.toJSON();
+                                    respuesta["action"] = "subirFoto";
+                                    webSocket->send(respuesta.dump());
 
                                 } //end
 

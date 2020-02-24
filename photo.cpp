@@ -2,13 +2,13 @@
 #include <QSqlQuery>
 #include <QVariant>
 #include <QDebug>
-
+#include <QSqlError>
 Photo::Photo()
 {
 
 }
 
-Photo::Photo(std::string url,std::string like,std::string size,int idStyle,int idUser)
+Photo::Photo(std::string url,int like,std::string size,int idStyle,int idUser)
 {
 
     this->m_url=url;
@@ -27,16 +27,15 @@ void Photo::createPhoto()
 {
 
     QSqlQuery query;
-    query.prepare("INSERT into photo (url,size,like,id_user,idstyle) values (:uurl,:siize,:like,:iduser,:idstyle)");
+    query.prepare("INSERT into photo (url,size,mg,id_user,idstyle) values (:uurl,:siize,:like,:iduser,:idstyle)");
 
 
     query.bindValue(":uurl", QString::fromStdString(m_url));
-    query.bindValue(":siize", QString::fromStdString(m_like));
-    query.bindValue(":like", QString::fromStdString(m_size));
+    query.bindValue(":siize", QString::fromStdString(m_size));
+    query.bindValue(":like", m_like);
     query.bindValue(":iduser", m_idUser);
     query.bindValue(":idstyle", m_idStyle);
     query.exec();
-
 
 }
 

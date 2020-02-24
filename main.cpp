@@ -12,7 +12,7 @@
 #include "ixwebsocket/IXConnectionState.h"
 #include "user.h"
 #include "photo.h"
-
+#include "style.h"
 #include "json.hpp"
 
 
@@ -40,6 +40,8 @@ bool existe(const json& json, const std::string& key)
 
 int main(int argc, char *argv[])
 {
+
+
     ///Traducciones:
 
     QCoreApplication a(argc,argv);
@@ -126,12 +128,6 @@ int main(int argc, char *argv[])
                                     webSocket->send(respuesta.dump());
                                 } // end if
 
-                                if (action == "listaFotos")
-                                {
-                                    json respuesta = Photo::photoList(receivedObject);
-                                    webSocket->send(respuesta.dump());
-
-                                } // end if
 
                                 ///CREAR USUARIO
                                 ///Utilizamos la acción crearUsuario que es la que tenemos en nuestro javascript
@@ -148,17 +144,15 @@ int main(int argc, char *argv[])
 
                                 } // end if
 
-                                if (action == "fotosEliminadas")
-                                {
-                                    json respuesta = Photo::deletePhoto(receivedObject);
-                                    webSocket->send(respuesta.dump());
-
-                                } //end if
-
                                 if (action == "subirFoto")
                                 {
 
-                                } //end if
+                                    Style s;
+                                    s.Load(receivedObject["estilo"]);
+                                    //Photo photo(receivedObject["imagen"],"","",s.getID(),0);
+
+                                } //end
+
 
                                 ///HACER EL LOGIN
                                 ///Utilizamos la acción entrar que es la que tenemos en nuestro javascript

@@ -1,3 +1,31 @@
+class User {
+
+    constructor(id, name, email, password)
+    {
+        this._id=id;
+        this._name=name;
+        this._email=email;
+        this._password=password;
+    }
+    
+    get id()
+    {
+        return this._id;
+    }
+    
+      get name()
+    {
+        return this._name;
+    }
+    
+      get email()
+    {
+        return this._email;
+    }
+    
+}
+
+var user;
 
 let socket = new WebSocket("wss://localhost:9990");
 
@@ -30,6 +58,9 @@ socket.onmessage = function(event) {
             document.getElementsByClassName("best")[0].style.display="block";
             document.getElementById("indexfot").style.display="flex";
             document.getElementById("buscar").style.display="inline";
+            
+            user= new User(mensaje.id, mensaje.nombre, mensaje.email,mensaje.password);
+            
         }
         
         
@@ -153,11 +184,12 @@ function comment()
     
 }
 
-function subirFoto()
+function subirImagen()
 {
-    var photo = document.getElementById("subirFoto").value;
+    var photo = document.getElementById("imagen").value;
+    var style = document.getElementById("Estilo").value;
     
-    var subirFoto = {action:"subirFoto",Subir:photo};
+    var subirFoto = {action:"subirFoto",imagen:photo,estilo:style};
     socket.send(JSON.stringify(subirFoto));
 }
 
@@ -172,7 +204,7 @@ function PerfilUsuario()
 
 function subirFoto()
 {
-        document.getElementById("FotoYtipo").style.display="block";
+        document.getElementById("FotoYtipo").style.display="flex";
         document.getElementsByClassName("best")[0].style.display="none";
         document.getElementById("headerPerfilUsuario").style.display="block";
         document.getElementById("headerPrincipal").style.display="none";

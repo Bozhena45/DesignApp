@@ -9,12 +9,12 @@ class Style
 {
 public:
     Style();
+    void Load(std::string tipo);
+    int getID();
 
 private:
     int m_idStyle;
     std::string m_tipo;
-    int m_idUser;
-    int m_idPhoto;
 };
 
 #endif // STYLE_H

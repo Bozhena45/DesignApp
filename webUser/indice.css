@@ -44,13 +44,13 @@ header div
     display:none;
 }
 
-#headerPerfilUsuario table ,p{
+#headerPerfilUsuario table ,p,  #buscarUsuario table{
 
     text-shadow: none;
     text-decoration: none;
 }
 
-#imagenPerfil{
+#imagenPerfil, #buscarUsuario img{
     width: 90px;
     height: 80px;
     border-radius: 50%;
@@ -171,7 +171,31 @@ section#buscarUsuarioSection p{
 	align-items: center;
 }
 
+#FotoYtipo
+{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    position: fixed;
+    top: 50%;
+    background-color: rgba(121, 183, 181, 0.5);
+    width: 96%;
+    height: 300px;
+}
 
+#FotoYtipo form
+{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    padding: 2rem 0;
+}
+
+#FotoYtipo form select
+{
+    margin: 1rem;
+}
 
 section#buscarUsuarioSection img{
 width: 100%;

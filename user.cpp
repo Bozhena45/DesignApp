@@ -59,6 +59,7 @@ json User::toJSON()
 {
     json usuario;
 
+    usuario["id"] = m_id;
     usuario["nombre"] = m_nombre;
     usuario["email"] = m_email;
     usuario["password"] = m_password;

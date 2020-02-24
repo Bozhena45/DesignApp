@@ -8,10 +8,7 @@ class Photo
 {
 public:
     Photo();
-    static json photoList(json&);
-    static json deletePhoto(json&);
-
-    Photo(std::string url,std::string like,std::string size);
+    Photo(std::string url,std::string like,std::string size,int idStyle,int idUser);
     void createPhoto();
     json toJSON();
 
@@ -21,6 +18,8 @@ private:
     std::string m_url;
     std::string m_like;
     std::string m_size;
+    int m_idStyle;
+    int m_idUser;
 };
 
 #endif // PHOTO_H

@@ -7,25 +7,16 @@ Photo::Photo()
 {
 
 }
-json Photo::photoList(json& mensaje)
+
+Photo::Photo(std::string url,std::string like,std::string size,int idStyle,int idUser)
 {
-    json persona1;
-    json persona2;
 
-    persona1["url"] = "https://pixabay.com/es/photos";
-    persona1["like"] = "50";
-    persona1["size"] = "64px";
+    this->m_url=url;
+    this->m_like=like;
+    this->m_size=size;
+    this->m_idUser=idUser;
+    this->m_idStyle=idStyle;
 
-    persona2["url"] = "https://pixabay.com/es";
-    persona2["like"] = "20";
-    persona2["size"] = "64px";
-
-    json respuesta;
-
-    respuesta["id"] = mensaje["id"];
-    respuesta["lista"]["1"] = persona1;
-    respuesta["lista"]["2"] = persona2;
-    return respuesta;
 }
 
 
@@ -36,12 +27,14 @@ void Photo::createPhoto()
 {
 
     QSqlQuery query;
-    query.prepare("INSERT into photo (url,size,like) values (:uurl,:siize,:like)");
+    query.prepare("INSERT into photo (url,size,like,id_user,idstyle) values (:uurl,:siize,:like,:iduser,:idstyle)");
 
 
     query.bindValue(":uurl", QString::fromStdString(m_url));
     query.bindValue(":siize", QString::fromStdString(m_like));
     query.bindValue(":like", QString::fromStdString(m_size));
+    query.bindValue(":iduser", m_idUser);
+    query.bindValue(":idstyle", m_idStyle);
     query.exec();
 
 
@@ -49,29 +42,16 @@ void Photo::createPhoto()
 
 json Photo::toJSON()
 {
-    json usuario;
+    json photo;
 
-    usuario["uurl"] = m_url;
-    usuario["siize"] = m_like;
-    usuario["like"] = m_size;
-    return usuario;
+    photo["uurl"] = m_url;
+    photo["siize"] = m_like;
+    photo["like"] = m_size;
+    photo["iduser"]=m_idUser;
+    photo["idstyle"]=m_idStyle;
+    return photo;
 }
 
 
 
-json Photo::deletePhoto(json& mensaje)
-{
-    json persona1;
-    json persona2;
 
-    persona1["imageDelete"] = "5";
-    persona2["imageDelete"] = "10";
-
-    json respuesta;
-
-    respuesta["id"] = mensaje["id"];
-    respuesta["lista"]["1"] = persona1;
-    respuesta["lista"]["2"] = persona2;
-
-    return respuesta;
-}

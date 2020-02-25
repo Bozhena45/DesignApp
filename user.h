@@ -3,19 +3,68 @@
 #include "json.hpp"
 
 using json = nlohmann::json;
-
+/**
+ * @brief La clase user
+ *
+ * Esta clase sirve para crear, buscar , generar/crear un JSON a partir de la libreria json = nlohmann::json
+ *
+ *
+ */
 class User
 {
 public:
-    ///Los metodos
+    /**
+     * @brief El constructor User
+     * @param nombre
+     * @param email
+     * @param password
+     */
     User(std::string nombre,std::string email,std::string password);
+    /**
+     * @brief El método createUser
+     *
+     * Este método sirve para crear un usuario ,es decir,
+     * para crear un usuario tenemos que insertar en la bbdd nombre,email y contraseña
+     * que son los parámetros que tenemos en la bbdd
+     *
+     */
+
     void createUser();
-
-    static json userList(json&);
+    /**
+     * @brief El método toJSON
+     *
+     * Sirve para crear un JSON a partir de la libreria json = nlohmann::json, y este mensaje
+     * JSON es lo que se le enviará al cliente
+     *
+     * @return Devuelve el mensaje pero en JSON
+     */
     json toJSON();
+    /**
+     * @brief El método load
+     *
+     * Este método sirve para poder buscar(hacer una select en la bbdd) el usuario con su información que en este
+     * caso sería su nombre, email y contraseña, la contraseña no se verá puesto que es una contraseña cifrada
+     * @param usuario
+     * @param contrasenya
+     * @return Nos devuelve el usuario con el email y la contraseña
+     */
     static User load(std::string usuario,std::string contrasenya);
-    static User loadN(std::string name);
 
+    /**
+     * @brief El método loadN
+     *
+     * Este método es muy parecido al anterior (load) puesto que también haríamos una select en la bbdd
+     * para poder buscar el usuario, pero en este caso sólo le pasaríamos el nombre del usuario
+     * @param name
+     * @return Nos devuelve el usuario con su nombre
+     */
+    static User loadN(std::string name);
+    /**
+     * @brief El método setId
+     *
+     * Sirve para coger el ID que es un parámetro privado
+     * @param id
+     */
     void setId(int id);
 
 

@@ -57,6 +57,9 @@ header div
     margin-right: 1rem;
 }
 
+#FotoYtipo figure{
+    align-self: flex-end;   
+}
 
 /*Section*/
 section#sectionLogin input{

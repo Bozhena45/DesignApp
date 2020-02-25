@@ -22,7 +22,8 @@ SOURCES += \
         main.cpp \
     user.cpp \
     photo.cpp \
-    style.cpp
+    style.cpp \
+    server.cpp
 
 LIBS += -pthread -lz -lssl -lcrypto
 
@@ -47,4 +48,5 @@ else:unix: PRE_TARGETDEPS += $$PWD/../../websocket/lib/libixwebsocket.a
 HEADERS += \
     user.h \
     photo.h \
-    style.h
+    style.h \
+    server.h

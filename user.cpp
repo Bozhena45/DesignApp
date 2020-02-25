@@ -14,29 +14,7 @@ User::User(std::string nombre,std::string email,std::string password)
     this->m_password = password;
 
 }
-///1) Listar usuarios:
-json User::userList(json& mensaje)
-{
 
-    json persona1;
-    json persona2;
-
-    persona1["name"] = "Carlos";
-    persona1["e-mail"] = "carlos@gmail.com";
-    persona1["password"] ="123456" ;
-
-    persona2["name"] = "Maria";
-    persona2["e-mail"] = "maria@gmail.com";
-    persona2["password"] ="678910" ;
-
-    json respuesta;
-
-    respuesta["id"] = mensaje["id"];
-    respuesta["lista"]["1"] = persona1;
-    respuesta["lista"]["2"] = persona2;
-    return respuesta;
-
-}
 ///2)Crear usuario:
 /// 2.1) Hacemos la query del insert(para añadir un nuevo usuario a la bbdd)
 /// 2.2) Lo pasamos a JSON

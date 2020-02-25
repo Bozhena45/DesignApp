@@ -216,4 +216,27 @@ function subirFoto()
         document.getElementById("headerPrincipal").style.display="none";
 }
 
+function CerrarSubirImagen()
+{
+    document.getElementById("FotoYtipo").style.display="none";
+    
+}
+
+function Home()
+{
+    document.getElementById("buscarUsuario").style.display="none";
+    document.getElementById("buscarUsuarioSection").style.display="none";
+    document.getElementsByClassName("best")[0].style.display="block";
+    document.getElementById("headerPrincipal").style.display="block";
+}
+
+
+function HomePerfilUsuario()
+{
+    document.getElementById("headerPerfilUsuario").style.display="none";
+    document.getElementById("PerfilUser").style.display="none";
+    document.getElementsByClassName("best")[0].style.display="block";
+    document.getElementById("headerPrincipal").style.display="block";
+}
+
 

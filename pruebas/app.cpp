@@ -1,5 +1,6 @@
 #include "app.h"
 #include "bbdd.h"
+#include "../user.h"
 #include <QCoreApplication>
 #include <QTimer>
 #include <QDebug>
@@ -49,7 +50,12 @@ TEST_CASE("base datos #0")
 
 }
 
+TEST_CASE("Usuario")
+{
+    User usuario("nombre","email","password");
+    CHECK(usuario.createUser() == true);
 
+}
 
 
 

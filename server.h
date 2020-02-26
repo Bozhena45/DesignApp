@@ -16,6 +16,7 @@
 #include "user.h"
 #include "photo.h"
 #include "style.h"
+#include "comments.h"
 #include "json.hpp"
 
 using json = nlohmann::json;

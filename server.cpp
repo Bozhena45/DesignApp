@@ -160,8 +160,14 @@ int Server::StartServer(int puerto)
 
                                 } //end if
 
-                                if (action == "comment")
+                                if (action == "nuevoComentario")
                                 {
+
+                                    Comments comentario(receivedObject["texto"],receivedObject["idUser"],receivedObject["idPhoto"]);
+                                    comentario.CreateComment();
+                                    json respuesta = comentario.toJSON();
+                                    respuesta["action"] = "nuevoComent";
+                                    webSocket->send(respuesta.dump());
 
                                 } //end if
 

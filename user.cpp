@@ -18,7 +18,7 @@ User::User(std::string nombre,std::string email,std::string password)
 ///2)Crear usuario:
 /// 2.1) Hacemos la query del insert(para añadir un nuevo usuario a la bbdd)
 /// 2.2) Lo pasamos a JSON
-void User::createUser()
+bool User::createUser()
 {
 
     QSqlQuery query;
@@ -29,7 +29,7 @@ void User::createUser()
     query.bindValue(":email", QString::fromStdString(m_email));
     query.bindValue(":passw", QString::fromStdString(m_password));
     query.exec();
-
+    return  true;
 
 }
 

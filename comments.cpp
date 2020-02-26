@@ -20,8 +20,7 @@ void Comments::CreateComment()
 {
 
     QSqlQuery query;
-    query.prepare("INSERT into comment (comment,id_user,idphoto) values (:comment,:iduser,:idphoto)");
-
+    query.prepare("INSERT into comment (comment,id_user,id_photo) values (:comment,:iduser,:idphoto)");
 
     query.bindValue(":comment", QString::fromStdString(m_comment));
     query.bindValue(":iduser", m_idUser);

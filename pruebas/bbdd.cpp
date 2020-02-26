@@ -99,6 +99,8 @@ bool Bbdd::init()
                 m_db.setDatabaseName("app_doctest");
                 m_db.open();
 
+                QSqlQuery q("CREATE EXTENSION pgcrypto", m_db);
+
                 /// Crea estructura en la base de datos
                 QString sql1 {"CREATE TABLE usuario ( \
                     idUsuario  SERIAL, \

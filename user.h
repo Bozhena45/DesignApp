@@ -29,7 +29,7 @@ public:
      *
      */
 
-    void createUser();
+    bool createUser();
     /**
      * @brief El método toJSON
      *

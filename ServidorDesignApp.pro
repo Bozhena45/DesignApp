@@ -23,7 +23,8 @@ SOURCES += \
     user.cpp \
     photo.cpp \
     style.cpp \
-    server.cpp
+    server.cpp \
+    comments.cpp
 
 LIBS += -pthread -lz -lssl -lcrypto
 
@@ -49,4 +50,5 @@ HEADERS += \
     user.h \
     photo.h \
     style.h \
-    server.h
+    server.h \
+    comments.h

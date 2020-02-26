@@ -97,12 +97,6 @@ int Server::StartServer(int puerto)
 
                                 std::string action = receivedObject["action"];
 
-                                if (action == "listaUsuarios")
-                                {
-                                    json respuesta = User::userList(receivedObject);
-                                    webSocket->send(respuesta.dump());
-                                } // end if
-
 
                                 ///CREAR USUARIO
                                 ///Utilizamos la acción crearUsuario que es la que tenemos en nuestro javascript

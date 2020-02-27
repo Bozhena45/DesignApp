@@ -37,7 +37,7 @@ public:
     /**
      * @brief El método setId
      *
-     * Sirve para coger el ID que es un parámetro privado
+     * Sirve para cambiar el ID que es un parámetro privado
      * @param id
      */
     void setId(int id);

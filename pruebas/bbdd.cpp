@@ -38,20 +38,6 @@ bool Bbdd::insert()
 
 }
 
-/*bool Bbdd::load(std::string nombre)
-{
-     QSqlQuery query(m_db);
-     /// 1)Hacer una SELECT en la bbdd para saber si existe el usuario o no
-         query.prepare("SELECT * from usuario where nombre = :nombre ");
-
-         query.bindValue(":nombre",QString::fromStdString(nombre));
-         query.exec();
-
-
-
-
-
-}*/
 
 Bbdd::Bbdd()
 {

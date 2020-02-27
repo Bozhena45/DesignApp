@@ -25,7 +25,7 @@ public:
     /**
      * @brief El método getId
      *
-     * Sirve para coger el ID que es un parámetro privado
+     * Sirve para cambiar el ID que es un parámetro privado
      * @return
      */
     int getID();

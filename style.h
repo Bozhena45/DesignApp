@@ -20,7 +20,7 @@ public:
      * Este método te permite buscar en la bbdd el tipo de estilo
      * @param tipo
      */
-    void Load(std::string tipo);
+    bool Load(std::string tipo);
 
     /**
      * @brief El método getId

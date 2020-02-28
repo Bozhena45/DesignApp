@@ -2,10 +2,13 @@
 #include "bbdd.h"
 #include "../user.h"
 #include "../photo.h"
+#include "../style.h"
+#include "../comments.h"
 #include <QCoreApplication>
 #include <QTimer>
 #include <QDebug>
 #include <QSqlQuery>
+
 
 App::App(QObject *parent) : QObject(parent)
 {
@@ -31,7 +34,6 @@ TEST_CASE("base datos #0")
 
     if (ok)
     {
-        qDebug() << "DB UP AND RUNNING";
 
         SUBCASE("Insertar #0")
         {
@@ -62,7 +64,7 @@ TEST_CASE("Usuario")
    //CHECK(usuario.load("email","password") == usuario);
 
     /// Load: Buscar el usuario a partir de su nombre
-    //CHECK(usuario.loadN("name") == true);
+    //CHECK(usuario.loadN("name") == false);
 
 }
 
@@ -71,12 +73,23 @@ TEST_CASE("Usuario")
 TEST_CASE("Photo")
 {
 
-    //Photo foto("foto",54,"50px",15,3);
-    //CHECK(foto.createPhoto() == true);
+    Photo foto("foto",54,"50px",15,3);
+    CHECK(foto.createPhoto() == true);
 
 }
 
+TEST_CASE("Style")
+{
+     Style estilo;
+     CHECK(estilo.Load("roquero") == false);
+}
 
+
+TEST_CASE("Comments")
+{
+    Comments comentario("me gusta tu foto",15,2);
+    CHECK(comentario.CreateComment() == true);
+}
 
 
 

@@ -16,7 +16,7 @@ Comments::Comments(std::string comment,int idPhoto,int idUser)
    this->m_idPhoto = idPhoto;
 }
 
-void Comments::CreateComment()
+bool Comments::CreateComment()
 {
 
     QSqlQuery query;
@@ -27,6 +27,7 @@ void Comments::CreateComment()
     query.bindValue(":idphoto", m_idPhoto);
     query.exec();
 
+    return true;
 }
 
 json Comments::toJSON()

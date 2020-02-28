@@ -23,7 +23,7 @@ Photo::Photo(std::string url,int like,std::string size,int idStyle,int idUser)
 ///2)Subir photo:
 /// 2.1) Hacemos la query del insert(para añadir una nueva foto a la tabla de photo que está relacionada con la tabla usuario )
 /// 2.2) Lo pasamos a JSON
-void Photo::createPhoto()
+bool Photo::createPhoto()
 {
 
     QSqlQuery query;
@@ -36,6 +36,8 @@ void Photo::createPhoto()
     query.bindValue(":iduser", m_idUser);
     query.bindValue(":idstyle", m_idStyle);
     query.exec();
+
+    return true;
 
 }
 

@@ -9,7 +9,7 @@ Style::Style()
 
 }
 
-void Style::Load(std::string tipo)
+bool Style::Load(std::string tipo)
 {
 
     QSqlQuery query;
@@ -24,9 +24,9 @@ void Style::Load(std::string tipo)
 
         m_idStyle = id;
         m_tipo=type.toUtf8().constData();
-
+        return true;
     }
-
+  return false;
 }
 
 int Style::getID()

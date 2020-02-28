@@ -7,7 +7,7 @@ var searchData=
   ['to_5fmsgpack',['to_msgpack',['../classnlohmann_1_1basic__json.html#a09ca1dc273d226afe0ca83a9d7438d9c',1,'nlohmann::basic_json']]],
   ['to_5fstring',['to_string',['../classnlohmann_1_1json__pointer.html#a3d4b15d32d096e3776c5d2c773b524f5',1,'nlohmann::json_pointer::to_string()'],['../namespacenlohmann.html#a6ce645a0b8717757e096a5b5773b7a16',1,'nlohmann::to_string()']]],
   ['to_5fubjson',['to_ubjson',['../classnlohmann_1_1basic__json.html#ae1ece6c2059114eac10873f13ef19185',1,'nlohmann::basic_json']]],
-  ['tojson',['toJSON',['../classPhoto.html#a7fee66e23bef6df61b97762f00777eb9',1,'Photo::toJSON()'],['../classUser.html#a586ba756b0b7bb8fa81de00c3a82660c',1,'User::toJSON()']]],
+  ['tojson',['toJSON',['../classComments.html#ac693c581e56d779a26a522b8ee8db3fe',1,'Comments::toJSON()'],['../classPhoto.html#a7fee66e23bef6df61b97762f00777eb9',1,'Photo::toJSON()'],['../classUser.html#a586ba756b0b7bb8fa81de00c3a82660c',1,'User::toJSON()']]],
   ['token_5ftype_5fname',['token_type_name',['../classnlohmann_1_1detail_1_1lexer.html#adb831e1f692a45c2281ed3d59ddf1e17',1,'nlohmann::detail::lexer']]],
   ['type',['type',['../classnlohmann_1_1basic__json.html#a2b2d781d7f2a4ee41bc0016e931cadf7',1,'nlohmann::basic_json']]],
   ['type_5fname',['type_name',['../classnlohmann_1_1basic__json.html#a9d75f6b5393b23a683d69605f9fb1f55',1,'nlohmann::basic_json']]]

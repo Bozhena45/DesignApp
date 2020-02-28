@@ -12,7 +12,7 @@ var searchData=
   ['literal_5for_5fvalue',['literal_or_value',['../classnlohmann_1_1detail_1_1lexer.html#a3f313cdbe187cababfc5e06f0b69b098ad2a8e6f6721cccec0b466301dd9495a5',1,'nlohmann::detail::lexer']]],
   ['literal_5ftrue',['literal_true',['../classnlohmann_1_1detail_1_1lexer.html#a3f313cdbe187cababfc5e06f0b69b098a85cc1a37b0aaa52de40e72f0ed4e0c0d',1,'nlohmann::detail::lexer']]],
   ['little_5fendianess',['little_endianess',['../classnlohmann_1_1detail_1_1binary__reader.html#a1e31dbfcf9567c8c2d4f0e4eb1b0230a',1,'nlohmann::detail::binary_reader']]],
-  ['load',['Load',['../classStyle.html#a49a9391c74ab2512e174b075691617ce',1,'Style::Load()'],['../classUser.html#af9d00689cf1d0e58a86d94332817a406',1,'User::load()']]],
+  ['load',['Load',['../classStyle.html#a178446852c1fcdece98488525cef3f67',1,'Style::Load()'],['../classUser.html#af9d00689cf1d0e58a86d94332817a406',1,'User::load()']]],
   ['loadn',['loadN',['../classUser.html#a079baa36719ec4b6fb549ba017981a6b',1,'User']]],
   ['loc',['loc',['../classnlohmann_1_1detail_1_1serializer.html#a1952945b7652afb59d3903cc8457a589',1,'nlohmann::detail::serializer']]]
 ];

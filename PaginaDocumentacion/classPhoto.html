@@ -80,9 +80,9 @@ Métodos públicos</h2></td></tr>
 <tr class="memitem:ab858bb7c1d4567479aa95719e5a0aac3"><td class="memItemLeft" align="right" valign="top"><a id="ab858bb7c1d4567479aa95719e5a0aac3"></a>
 &#160;</td><td class="memItemRight" valign="bottom"><b>Photo</b> (std::string url, int like, std::string size, int idStyle, int idUser)</td></tr>
 <tr class="separator:ab858bb7c1d4567479aa95719e5a0aac3"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a693bbe771fa70b23b433b7e4e90a4c77"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classPhoto.html#a693bbe771fa70b23b433b7e4e90a4c77">createPhoto</a> ()</td></tr>
-<tr class="memdesc:a693bbe771fa70b23b433b7e4e90a4c77"><td class="mdescLeft">&#160;</td><td class="mdescRight">El método createPhoto.  <a href="#a693bbe771fa70b23b433b7e4e90a4c77">Más...</a><br /></td></tr>
-<tr class="separator:a693bbe771fa70b23b433b7e4e90a4c77"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a01d0d38aa6d6f5d40f9493fe4793886a"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classPhoto.html#a01d0d38aa6d6f5d40f9493fe4793886a">createPhoto</a> ()</td></tr>
+<tr class="memdesc:a01d0d38aa6d6f5d40f9493fe4793886a"><td class="mdescLeft">&#160;</td><td class="mdescRight">El método createPhoto.  <a href="#a01d0d38aa6d6f5d40f9493fe4793886a">Más...</a><br /></td></tr>
+<tr class="separator:a01d0d38aa6d6f5d40f9493fe4793886a"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a7fee66e23bef6df61b97762f00777eb9"><td class="memItemLeft" align="right" valign="top"><a class="el" href="classnlohmann_1_1basic__json.html">json</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classPhoto.html#a7fee66e23bef6df61b97762f00777eb9">toJSON</a> ()</td></tr>
 <tr class="memdesc:a7fee66e23bef6df61b97762f00777eb9"><td class="mdescLeft">&#160;</td><td class="mdescRight">El método toJSON.  <a href="#a7fee66e23bef6df61b97762f00777eb9">Más...</a><br /></td></tr>
 <tr class="separator:a7fee66e23bef6df61b97762f00777eb9"><td class="memSeparator" colspan="2">&#160;</td></tr>
@@ -115,14 +115,14 @@ int&#160;</td><td class="memItemRight" valign="bottom"><b>m_idUser</b></td></tr>
 <div class="textblock"><p>Clase para el manejo de Fotos y insertarlos en ls bbdd rellenados con los parámetros correspondientes. </p>
 <p>Esta clase sirve para poder crear una foto y poder insertarla dentro de la bbdd, tambien sirve para crear un JSON a partir de la libreria json = <a class="el" href="namespacenlohmann.html#a2bfd99e845a2e5cd90aeaf1b1431f474" title="default JSON class ">nlohmann::json</a>, y este mensaje JSON es lo que se le enviará al cliente </p>
 </div><h2 class="groupheader">Documentación de las funciones miembro</h2>
-<a id="a693bbe771fa70b23b433b7e4e90a4c77"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a693bbe771fa70b23b433b7e4e90a4c77">&#9670;&nbsp;</a></span>createPhoto()</h2>
+<a id="a01d0d38aa6d6f5d40f9493fe4793886a"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a01d0d38aa6d6f5d40f9493fe4793886a">&#9670;&nbsp;</a></span>createPhoto()</h2>
 
 <div class="memitem">
 <div class="memproto">
       <table class="memname">
         <tr>
-          <td class="memname">void Photo::createPhoto </td>
+          <td class="memname">bool Photo::createPhoto </td>
           <td>(</td>
           <td class="paramname"></td><td>)</td>
           <td></td>
@@ -153,7 +153,7 @@ int&#160;</td><td class="memItemRight" valign="bottom"><b>m_idUser</b></td></tr>
 </div><div class="memdoc">
 
 <p>El método setId. </p>
-<p>Sirve para coger el ID que es un parámetro privado </p><dl class="params"><dt>Parámetros</dt><dd>
+<p>Sirve para cambiar el ID que es un parámetro privado </p><dl class="params"><dt>Parámetros</dt><dd>
   <table class="params">
     <tr><td class="paramname">id</td><td></td></tr>
   </table>

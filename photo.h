@@ -24,7 +24,7 @@ public:
      * necesitaríamos los parámentros que están en el constructor.
      * En este caso no se subiría una foto sino la url de la foto.
      */
-    void createPhoto();
+    bool createPhoto();
     /**
      * @brief El método toJSON
      *

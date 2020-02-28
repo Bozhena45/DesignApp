@@ -19,7 +19,12 @@ SOURCES += \
         main.cpp \
     app.cpp \
     bbdd.cpp \
-    ../user.cpp
+    ../user.cpp \
+   ../photo.cpp \
+   ../style.cpp \
+   ../comments.cpp
+
+
 
 
 # Default rules for deployment.
@@ -30,4 +35,7 @@ else: unix:!android: target.path = /opt/$${TARGET}/bin
 HEADERS += \
     app.h \
     bbdd.h \
-    ../user.h
+    ../user.h \
+    ../photo.h \
+    ../style.h \
+    ../comments.h

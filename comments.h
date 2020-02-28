@@ -25,7 +25,7 @@ public:
      *
      * A partir de este método crearíamos nuestro comentario
      */
-    void CreateComment();
+    bool CreateComment();
 
     /**
      * @brief toJSON

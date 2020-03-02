@@ -201,7 +201,4 @@ int Server::StartServer(int puerto)
 
 }
 
-void Server::StopServer()
-{
 
-}

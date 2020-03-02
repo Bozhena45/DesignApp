@@ -5,9 +5,9 @@
 using json = nlohmann::json;
 
 /**
- * @brief Clase para el manejo de Fotos y insertarlos en ls bbdd rellenados con los parámetros correspondientes
+ * @brief Clase para el manejo de Fotos
  *
- * Esta clase sirve para poder crear una foto y poder insertarla dentro de la bbdd,
+ * Esta clase sirve para la creación de una foto y poder insertarla dentro de la base de datos,
  * tambien sirve para crear un JSON a partir de la libreria json = nlohmann::json, y este mensaje
  * JSON es lo que se le enviará al cliente
  */
@@ -20,9 +20,9 @@ public:
     /**
      * @brief El método createPhoto
      *
-     * Este método sirve para crear una foto dentro de la bbdd. Para crear una foto
+     * Este método sirve para crear una foto dentro de la base de datos. Para crear una foto
      * necesitaríamos los parámentros que están en el constructor.
-     * En este caso no se subiría una foto sino la url de la foto.
+     * En este caso, no se subiría una foto en la aplicación  sino la url de la foto.
      */
     bool createPhoto();
     /**
@@ -31,7 +31,7 @@ public:
      * Sirve para crear un JSON a partir de la libreria json = nlohmann::json, y este mensaje
      * JSON es lo que se le enviará al cliente
      *
-     * @return Devuelve el mensaje pero en JSON utilizando la librería json = nlohmann::json
+     * @return Devuelve el mensaje  JSON
      */
     json toJSON();
     /**

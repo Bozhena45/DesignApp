@@ -24,8 +24,8 @@ public:
      * @brief El método createUser
      *
      * Este método sirve para crear un usuario ,es decir,
-     * para crear un usuario tenemos que insertar en la bbdd nombre,email y contraseña
-     * que son los parámetros que tenemos en la bbdd
+     * para crear un usuario tenemos que insertar en la base de datos nombre,email y contraseña
+     *
      *
      */
 
@@ -42,19 +42,19 @@ public:
     /**
      * @brief El método load
      *
-     * Este método sirve para poder buscar(hacer una select en la bbdd) el usuario con su información que en este
-     * caso sería su nombre, email y contraseña, la contraseña no se verá puesto que es una contraseña cifrada
+     * Este método sirve para poder buscar(hacer una select en la base de datos) el usuario con su información que en este
+     * caso sería su  email y contraseña, la contraseña no se verá puesto que es una contraseña cifrada
      * @param usuario
      * @param contrasenya
-     * @return Nos devuelve el usuario con el email y la contraseña
+     * @return Nos devuelve el usuario con su email y su contraseña
      */
     static User load(std::string usuario,std::string contrasenya);
 
     /**
      * @brief El método loadN
      *
-     * Este método es muy parecido al anterior (load) puesto que también haríamos una select en la bbdd
-     * para poder buscar el usuario, pero en este caso sólo le pasaríamos el nombre del usuario
+     * Este método es muy parecido al anterior puesto que también haríamos una select en la base de datos
+     * para poder buscar el usuario, pero en este caso sólo le pasaríamos su nombre
      * @param name
      * @return Nos devuelve el usuario con su nombre
      */

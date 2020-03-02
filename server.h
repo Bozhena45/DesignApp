@@ -23,8 +23,8 @@ using json = nlohmann::json;
 /**
  * @brief La clase Servidor
  *
- * Esta clase sirve para poder encender el Servidor y a partir de unos métodos por
- * conectarlo con la bbdd y hacer los JSON correspondientes
+ * Esta clase sirve para poder encender el Servidor y a partir de unos métodos poder
+ * conectarlo con la base de datos y hacer los JSON correspondientes
  *
  */
 class Server
@@ -39,14 +39,12 @@ public:
      * @return
      */
     int StartServer(int puerto);
-    void StopServer();
 private:
     /**
      * @brief El método connectBBDD
      *
-     * Sirve para conectar la bbdd. Dentro de este método la bbdd se conecta con el servidor
-     * y además se generan los mensajes JSON que están conectados con las funciones de las funciones de
-     * la aplicación
+     * Sirve para conectar la base de datos.
+     * Se generan los mensajes JSON. Para conectarnos utilizamos el action, a partir de eso se envían y reciben mensajes JSON
      * @return
      */
     bool connectBBDD();

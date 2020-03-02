@@ -7,8 +7,8 @@ using json = nlohmann::json;
 /**
  * @brief La clase Estilo
  *
- * Esta clase sirve para poder elegir el tipo de estilo que queremos subir en nuestra aplicación
- * y al ponerlo se añadirá en la bbdd que está relacionada con la clase foto
+ * Esta clase sirve para poder elegir el tipo de estilo que queremos  a la hora de subir una foto en nuestra aplicación
+ * y al ponerlo se añadirá en la base de datos que está relacionada con la clase foto
  */
 class Style
 {
@@ -17,7 +17,7 @@ public:
     /**
      * @brief El método Load
      *
-     * Este método te permite buscar en la bbdd el tipo de estilo
+     * Este método te permite buscar en la base de datos el tipo de estilo
      * @param tipo
      */
     bool Load(std::string tipo);

@@ -70,7 +70,7 @@ $(function() {
 </div><!--header-->
 <div class="contents">
 
-<p>Clase para el manejo de Fotos y insertarlos en ls bbdd rellenados con los parámetros correspondientes.  
+<p>Clase para el manejo de Fotos.  
  <a href="classPhoto.html#details">Más...</a></p>
 
 <p><code>#include &lt;<a class="el" href="photo_8h_source.html">photo.h</a>&gt;</code></p>
@@ -112,8 +112,8 @@ int&#160;</td><td class="memItemRight" valign="bottom"><b>m_idUser</b></td></tr>
 <tr class="separator:adb93fbebcf54b8a420fad3654ee35f8a"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <a name="details" id="details"></a><h2 class="groupheader">Descripción detallada</h2>
-<div class="textblock"><p>Clase para el manejo de Fotos y insertarlos en ls bbdd rellenados con los parámetros correspondientes. </p>
-<p>Esta clase sirve para poder crear una foto y poder insertarla dentro de la bbdd, tambien sirve para crear un JSON a partir de la libreria json = <a class="el" href="namespacenlohmann.html#a2bfd99e845a2e5cd90aeaf1b1431f474" title="default JSON class ">nlohmann::json</a>, y este mensaje JSON es lo que se le enviará al cliente </p>
+<div class="textblock"><p>Clase para el manejo de Fotos. </p>
+<p>Esta clase sirve para la creación de una foto y poder insertarla dentro de la base de datos, tambien sirve para crear un JSON a partir de la libreria json = <a class="el" href="namespacenlohmann.html#a2bfd99e845a2e5cd90aeaf1b1431f474" title="default JSON class ">nlohmann::json</a>, y este mensaje JSON es lo que se le enviará al cliente </p>
 </div><h2 class="groupheader">Documentación de las funciones miembro</h2>
 <a id="a01d0d38aa6d6f5d40f9493fe4793886a"></a>
 <h2 class="memtitle"><span class="permalink"><a href="#a01d0d38aa6d6f5d40f9493fe4793886a">&#9670;&nbsp;</a></span>createPhoto()</h2>
@@ -131,7 +131,7 @@ int&#160;</td><td class="memItemRight" valign="bottom"><b>m_idUser</b></td></tr>
 </div><div class="memdoc">
 
 <p>El método createPhoto. </p>
-<p>Este método sirve para crear una foto dentro de la bbdd. Para crear una foto necesitaríamos los parámentros que están en el constructor. En este caso no se subiría una foto sino la url de la foto.</p>
+<p>Este método sirve para crear una foto dentro de la base de datos. Para crear una foto necesitaríamos los parámentros que están en el constructor. En este caso, no se subiría una foto en la aplicación sino la url de la foto.</p>
 <p>2)Subir photo: 2.1) Hacemos la query del insert(para añadir una nueva foto a la tabla de photo que está relacionada con la tabla usuario ) 2.2) Lo pasamos a JSON </p>
 
 </div>
@@ -179,7 +179,7 @@ int&#160;</td><td class="memItemRight" valign="bottom"><b>m_idUser</b></td></tr>
 
 <p>El método toJSON. </p>
 <p>Sirve para crear un JSON a partir de la libreria json = <a class="el" href="namespacenlohmann.html#a2bfd99e845a2e5cd90aeaf1b1431f474" title="default JSON class ">nlohmann::json</a>, y este mensaje JSON es lo que se le enviará al cliente</p>
-<dl class="section return"><dt>Devuelve</dt><dd>Devuelve el mensaje pero en JSON utilizando la librería json = <a class="el" href="namespacenlohmann.html#a2bfd99e845a2e5cd90aeaf1b1431f474" title="default JSON class ">nlohmann::json</a> </dd></dl>
+<dl class="section return"><dt>Devuelve</dt><dd>Devuelve el mensaje JSON </dd></dl>
 
 </div>
 </div>

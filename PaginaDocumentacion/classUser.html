@@ -181,7 +181,7 @@ std::string&#160;</td><td class="memItemRight" valign="bottom"><b>m_password</b>
 </div><div class="memdoc">
 
 <p>El método createUser. </p>
-<p>Este método sirve para crear un usuario ,es decir, para crear un usuario tenemos que insertar en la bbdd nombre,email y contraseña que son los parámetros que tenemos en la bbdd</p>
+<p>Este método sirve para crear un usuario ,es decir, para crear un usuario tenemos que insertar en la base de datos nombre,email y contraseña</p>
 <p>2)Crear usuario: 2.1) Hacemos la query del insert(para añadir un nuevo usuario a la bbdd) 2.2) Lo pasamos a JSON </p>
 
 </div>
@@ -221,14 +221,14 @@ std::string&#160;</td><td class="memItemRight" valign="bottom"><b>m_password</b>
 </div><div class="memdoc">
 
 <p>El método load. </p>
-<p>Este método sirve para poder buscar(hacer una select en la bbdd) el usuario con su información que en este caso sería su nombre, email y contraseña, la contraseña no se verá puesto que es una contraseña cifrada </p><dl class="params"><dt>Parámetros</dt><dd>
+<p>Este método sirve para poder buscar(hacer una select en la base de datos) el usuario con su información que en este caso sería su email y contraseña, la contraseña no se verá puesto que es una contraseña cifrada </p><dl class="params"><dt>Parámetros</dt><dd>
   <table class="params">
     <tr><td class="paramname">usuario</td><td></td></tr>
     <tr><td class="paramname">contrasenya</td><td></td></tr>
   </table>
   </dd>
 </dl>
-<dl class="section return"><dt>Devuelve</dt><dd>Nos devuelve el usuario con el email y la contraseña</dd></dl>
+<dl class="section return"><dt>Devuelve</dt><dd>Nos devuelve el usuario con su email y su contraseña</dd></dl>
 <p>3)Buscar usuarios en la bbdd: 3.1)Creamos el metodo load al que le pasamos los parámetros necesarios 3.2)Hacemos la select para buscar el usuario en la bbdd apartir de los parámetros 3.3)Pasamos todas los valores en string para poder luego coger los datos y devolver el usuario pedido </p>
 
 </div>
@@ -258,7 +258,7 @@ std::string&#160;</td><td class="memItemRight" valign="bottom"><b>m_password</b>
 </div><div class="memdoc">
 
 <p>El método loadN. </p>
-<p>Este método es muy parecido al anterior (load) puesto que también haríamos una select en la bbdd para poder buscar el usuario, pero en este caso sólo le pasaríamos el nombre del usuario </p><dl class="params"><dt>Parámetros</dt><dd>
+<p>Este método es muy parecido al anterior puesto que también haríamos una select en la base de datos para poder buscar el usuario, pero en este caso sólo le pasaríamos su nombre </p><dl class="params"><dt>Parámetros</dt><dd>
   <table class="params">
     <tr><td class="paramname">name</td><td></td></tr>
   </table>

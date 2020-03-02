@@ -6,8 +6,8 @@ using json = nlohmann::json;
 /**
  * @brief La clase comentarios
  *
- * Con esta clase podremos crear un comentario y coger el id puesto que es privado(lo cogeríamos a partir de un método)
- * Además  se podrá generar/crear un JSON a partir de la libreria json = nlohmann::json
+ * Esta clase sirve para poder crear un comentario y se pueda añadir a la imagen
+ * Los metodos que tiene esta clase son: crear un comentario y pasar los mensajes a json
  */
 
 class Comments
@@ -29,6 +29,8 @@ public:
 
     /**
      * @brief toJSON
+     *
+     * Se podrá generar/crear un JSON a partir de la libreria json = nlohmann::json
      * @return Este método devuelve los mensajes en forma de json
      */
     json toJSON();

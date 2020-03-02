@@ -55,6 +55,17 @@ private:
      * @return devuelve el json
      */
     bool existe(const json& json, const std::string& key);
+
+    void ReadFile();
+    void processLine(std::string line);
+    std::map<std::string,std::string> m_properties;
+    void loadProperties();
+
+    QString m_hostName;
+    QString m_databaseName;
+    int m_port;
+    QString m_userName;
+    QString m_password;
 };
 
 #endif // SERVER_H

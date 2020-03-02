@@ -1,8 +1,55 @@
 #include "server.h"
-
+#include <QFile>
+#include <QDebug>
 Server::Server()
 {
 
+}
+
+void Server::processLine(std::string line)
+{
+    std::string nuevaLinea = line.substr(0,line.rfind("\n"));
+
+    std::string clave = nuevaLinea.substr(0,nuevaLinea.rfind("="));
+    std::string valor = nuevaLinea.substr(nuevaLinea.rfind("=") + 1,nuevaLinea.size());
+
+    m_properties[clave] = valor;
+
+}
+
+void Server::ReadFile()
+{
+    QString nombreArchivo = "./baseDatos.conf";
+
+    if (QFile::exists(nombreArchivo))
+    {
+        QFile file(nombreArchivo);
+
+        if(file.open(QIODevice::ReadOnly | QIODevice::Text ))
+        {
+            while (!file.atEnd()) {
+                std::string line = QString(file.readLine()).toUtf8().constData();
+                processLine(line);
+
+            }
+        }
+    }
+    else {
+        qDebug()<<"error";
+        exit(0);
+    }
+}
+
+
+void Server::loadProperties()
+{
+    ReadFile();
+
+    m_hostName = QString::fromUtf8(m_properties["hostname"].c_str());
+    m_databaseName = QString::fromUtf8(m_properties["databaseName"].c_str());
+    m_port = std::stoi(m_properties["port"]);
+    m_userName = QString::fromUtf8(m_properties["userName"].c_str());
+    m_password = QString::fromUtf8(m_properties["password"].c_str());
 }
 
 bool Server::existe(const json& json, const std::string& key)
@@ -12,12 +59,13 @@ bool Server::existe(const json& json, const std::string& key)
 
 bool Server::connectBBDD()
 {
+    loadProperties();
     QSqlDatabase bbdd = QSqlDatabase::addDatabase("QPSQL");
-    bbdd.setHostName("localhost");
-    bbdd.setDatabaseName("DesignApp");
-    bbdd.setPort(5432);
-    bbdd.setUserName("postgres");
-    bbdd.setPassword("");
+    bbdd.setHostName(m_hostName);
+    bbdd.setDatabaseName(m_databaseName);
+    bbdd.setPort(m_port);
+    bbdd.setUserName(m_userName);
+    bbdd.setPassword(m_password);
 
 
     bool ok = bbdd.open();

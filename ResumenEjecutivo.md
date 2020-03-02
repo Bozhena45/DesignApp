@@ -4,7 +4,7 @@
 **En que consiste DesignApp:** 
 
 Es una aplicación diseñada tanto para IOS como para Android.
-Esta aplicación está conectada a una bbdd y a un Servidor via websocket. Los mensajes que se envían y se reciben son mensajes JSON.
+Esta aplicación está conectada a una base de datos y a un Servidor via websocket. Los mensajes que se envían y se reciben son mensajes JSON.
 Consiste en poder subir fotos relacionadas con tus looks que más te gusten y así poder mostrarlos a tus seguidores y darle me gusta y también poder comentar.
 
 **Como se ha ido haciendo el proyecto (que tecnología he utilizado)**
@@ -15,8 +15,25 @@ Para hacer la conexión entre el Servidor y el cliente , he utilizado websocket 
 Para el diseño de la aplicación he ido utilizando html, css y javascript
 Cada vez que he ido actualizando todo lo que hago o modifico de la aplicación ,lo he ido guardando en el git (Git es un software de control de versiones), pero para utilizar
 el git lo he tenido que instalar en mi máquina virtual.
-He creado una bbdd en PostgreSQL para poder ir guardando la información.
+He creado una base de datos en PostgreSQL para poder ir guardando la información.
 
+Resumido:
+
+- PostgreSQL para base de datos
+
+
+- Websocket para conectar el servidor con el cliente
+
+
+- Html,css y javascript para su diseño y funcionalidad
+
+
+- Git para ir guardando los cambios
+
+
+- Mensajes JSON
+
+*********************************************************************************************
 **Pasos para poder utilizar la aplicación:**
 
 
@@ -40,8 +57,14 @@ una nueva pestaña en la cuál podrás dejar un comentario.
 
 
 1) Lo más importante que me habría gustado implementar en mi proyecto es que en vez de que se guarde la URL de una foto se guarde la imagen.
-2) Me habría gustado que al darle clic al botón "me gusta" se vaya actualizando en la bbdd y además vaya cambiando de color el icono.
 
+2) Me habría gustado que al darle clic al botón "me gusta" se vaya actualizando en la base de datos y además vaya cambiando de color el icono.
+
+3) Al darle a enviar comentario se guarda en la base de datos pero no se recarga todavía en la aplicación.
+
+4) No se pueden buscar  los usuarios registrados porque debería hacerle a cada uno un perfil propio.
+
+*********************************************************************************************
 ### Gestión de errores:
 
 Antes de comentar los errores que he tenido a lo largo de la creación de la aplicación, quiero destacar que las posibles dudas o problemas que me han ido surgiendo los he ido solucionando con la ayuda de mi profesor, buscando por Internet y mirando la documentación.

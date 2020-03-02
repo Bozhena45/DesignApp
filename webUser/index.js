@@ -72,6 +72,7 @@ socket.onmessage = function(event) {
         document.getElementsByClassName("registro")[0].style.display="none";
         document.getElementsByClassName("best")[0].style.display="block";
         document.getElementById("indexfot").style.display="flex";
+        document.getElementById("buscar").style.display="inline";
         
     }
     
@@ -135,9 +136,17 @@ function createUser()
    var name = document.getElementById("nameUsuario").value;
    var email = document.getElementById("emailUsuario").value;
    var password = document.getElementById("contraUsuario").value;
-
-   var crearUsuario = {action:"crearUsuario",id:idMensaje,nombre:name,correoElectronico:email,contrasenya:password};
+   
+    if (name == "" || email == "" || password == "")
+    {
+        
+        
+    }else {
+        var crearUsuario = {action:"crearUsuario",id:idMensaje,nombre:name,correoElectronico:email,contrasenya:password};
    socket.send(JSON.stringify(crearUsuario));
+    }
+
+   
 
 }
 

@@ -27,7 +27,7 @@ class User {
 
 var user;
 
-let socket = new WebSocket("wss://localhost:9990");
+let socket = new WebSocket("ws://localhost:9990");
 
 var g_idMessage = 0;
 

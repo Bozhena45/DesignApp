@@ -6,7 +6,7 @@
 Es una aplicación diseñada tanto para IOS como para Android.
 Esta aplicación está conectada a una base de datos y a un Servidor via websocket. Los mensajes que se envían y se reciben son mensajes JSON.
 Consiste en poder subir fotos relacionadas con tus looks que más te gusten y así poder mostrarlos a tus seguidores y darle me gusta y también poder comentar.
-
+La aplicación la puedes encontrar subida en GitHub.
 **Como se ha ido haciendo el proyecto (que tecnología he utilizado)**
 
 Mi proyecto se ha realizado en el sistema operativo Linux.
@@ -32,6 +32,14 @@ Resumido:
 
 
 - Mensajes JSON
+
+*********************************************************************************************
+**Ejemplos para poder utilizar la aplicación sin estar registrado**
+
+1) Una vez instalada la aplicación o descargada de github, puedes probar la aplicación sin tener que registrarte. Hay un usuario creado, con el cuál puedes acceder.
+usuario : Pepa@gmail.com contraseña :1234
+
+
 
 *********************************************************************************************
 **Pasos para poder utilizar la aplicación:**

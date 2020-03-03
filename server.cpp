@@ -85,14 +85,14 @@ int Server::StartServer(int puerto)
     ix::SocketTLSOptions tlsOptions;
 
     tlsOptions.tls = true;
-    tlsOptions.certFile = "../cert/localhost/archivoSalida.crt";
-    tlsOptions.keyFile = "../cert/localhost/serverSSL.key";
+    tlsOptions.certFile = "./cert/localhost/archivoSalida.crt";
+    tlsOptions.keyFile = "./cert/localhost/serverSSL.key";
     tlsOptions.caFile = "NONE";
 
     if(tlsOptions.isValid()){
         qDebug() << "SSL vaild" ;
     }
-    server.setTLSOptions(tlsOptions);
+    //server.setTLSOptions(tlsOptions);
 
     server.setOnConnectionCallback(
         [&server, this](std::shared_ptr<ix::WebSocket> webSocket,

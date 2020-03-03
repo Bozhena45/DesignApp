@@ -19,7 +19,7 @@ void Server::processLine(std::string line)
 
 void Server::ReadFile()
 {
-    QString nombreArchivo = "./baseDatos.conf";
+    QString nombreArchivo = "../baseDatos.conf";
 
     if (QFile::exists(nombreArchivo))
     {
@@ -75,18 +75,23 @@ bool Server::connectBBDD()
 int Server::StartServer(int puerto)
 {
 
-    connectBBDD();
+    bool ok = connectBBDD();
+    if (ok){
+        qDebug() << "conecta a la base de datos";
+    }
 
     ix::WebSocketServer server(puerto, "0.0.0.0");
 
     ix::SocketTLSOptions tlsOptions;
 
     tlsOptions.tls = true;
-    tlsOptions.certFile = "/home/usuario/cert/localhost/archivoSalida.crt";
-    tlsOptions.keyFile = "/home/usuario/cert/localhost/serverSSL.key";
+    tlsOptions.certFile = "../cert/localhost/archivoSalida.crt";
+    tlsOptions.keyFile = "../cert/localhost/serverSSL.key";
     tlsOptions.caFile = "NONE";
 
-
+    if(tlsOptions.isValid()){
+        qDebug() << "SSL vaild" ;
+    }
     server.setTLSOptions(tlsOptions);
 
     server.setOnConnectionCallback(

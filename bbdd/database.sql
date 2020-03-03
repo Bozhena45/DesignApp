@@ -16,6 +16,34 @@ SET xmloption = content;
 SET client_min_messages = warning;
 SET row_security = off;
 
+--
+-- Name: plpgsql; Type: EXTENSION; Schema: -; Owner: 
+--
+
+CREATE EXTENSION IF NOT EXISTS plpgsql WITH SCHEMA pg_catalog;
+
+
+--
+-- Name: EXTENSION plpgsql; Type: COMMENT; Schema: -; Owner: 
+--
+
+COMMENT ON EXTENSION plpgsql IS 'PL/pgSQL procedural language';
+
+
+--
+-- Name: pgcrypto; Type: EXTENSION; Schema: -; Owner: 
+--
+
+CREATE EXTENSION IF NOT EXISTS pgcrypto WITH SCHEMA public;
+
+
+--
+-- Name: EXTENSION pgcrypto; Type: COMMENT; Schema: -; Owner: 
+--
+
+COMMENT ON EXTENSION pgcrypto IS 'cryptographic functions';
+
+
 SET default_tablespace = '';
 
 SET default_with_oids = false;
@@ -242,7 +270,9 @@ COPY public.style (id_style, tipo) FROM stdin;
 
 COPY public.usuario (id_user, name, email, password) FROM stdin;
 15	Pepa	Pepa@gmail.com	$2a$06$iwKlEWb.8oC.cgPTkqpfWu.yz1WwvNZVmk4t5YMMRLgepy.SnaXF2
-25			$2a$06$aFHZgm8LX0JYBIv76ewnw.nZ73P08So6tmYqcVQ.c1iEZS3hQejwS
+26	bozhena	Bozhena@gmail.com	$2a$06$aSgj30DpvYaIRYUAIzT3ZumlGW51HKTumbvwxrYuShJSCZ5WGGYrS
+27	as	aa	$2a$06$Y11VY4CuhA40GHV8zmN6ruV8OlS9GgEn8XyZ/3qb06p/8a4CfMXHm
+28	Arturo	arturo	$2a$06$BLnv4MClUW7dIdyUB2pIzOQDxbuHXYtbbJpjNM8.zMXbw7XVJhM3u
 \.
 
 
@@ -271,7 +301,7 @@ SELECT pg_catalog.setval('public.style_id_style_seq', 4, true);
 -- Name: usuario_id_user_seq; Type: SEQUENCE SET; Schema: public; Owner: postgres
 --
 
-SELECT pg_catalog.setval('public.usuario_id_user_seq', 25, true);
+SELECT pg_catalog.setval('public.usuario_id_user_seq', 28, true);
 
 
 --

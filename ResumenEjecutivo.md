@@ -38,7 +38,7 @@ Resumido:
 
 1) Una vez instalada la aplicación o descargada de github, puedes probar la aplicación sin tener que registrarte. Hay un usuario creado, con el cuál puedes acceder.
 usuario : Pepa@gmail.com contraseña :1234
-
+2)La base de datos se llama DesignApp.
 
 
 *********************************************************************************************

@@ -74,6 +74,9 @@ socket.onmessage = function(event) {
         document.getElementsByClassName("best")[0].style.display="block";
         document.getElementById("indexfot").style.display="flex";
         document.getElementById("buscar").style.display="inline";
+        document.getElementById("salir").style.display="block";
+        
+        user= new User(mensaje.id, mensaje.nombre, mensaje.email,mensaje.password);
         
     }
     

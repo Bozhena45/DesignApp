@@ -1,6 +1,7 @@
 #ifndef COMMENTS_H
 #define COMMENTS_H
 #include "json.hpp"
+#include <list>
 
 using json = nlohmann::json;
 /**
@@ -41,6 +42,13 @@ public:
      * @param id
      */
 
+
+    /**
+     * @brief Devuelve la lista de comentarios de una foto
+     * @param id_photo
+     * @return
+     */
+    static std::list<Comments> find (int id_photo);
     void setId(int id);
 
 private:

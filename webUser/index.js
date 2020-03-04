@@ -58,6 +58,7 @@ socket.onmessage = function(event) {
             document.getElementsByClassName("best")[0].style.display="block";
             document.getElementById("indexfot").style.display="flex";
             document.getElementById("buscar").style.display="inline";
+            document.getElementById("salir").style.display="block";
             
             user= new User(mensaje.id, mensaje.nombre, mensaje.email,mensaje.password);
             
@@ -89,6 +90,20 @@ socket.onmessage = function(event) {
     if (mensaje.action == "subirFoto")
     {
         document.getElementById("FotosubidaExito").style.display="block";
+    }
+    
+    if (mensaje.action == "listacomentarios")
+    {
+        
+        var figure = document.getElementById("foto"+mensaje.lista[0].idphoto);
+        var figcaption = figure.childNodes[3];
+        var divComentario = figcaption.childNodes[7];
+        
+        for (var i of mensaje.lista)
+        {
+            divComentario.innerHTML += i.comment + "<br/>";
+        }
+        
     }
     
 
@@ -251,6 +266,7 @@ function HomePerfilUsuario()
 function ClickComentario(clickId)
 {
     
+    
     var parent = clickId.parentElement;
     
     var node = document.createElement("DIV");
@@ -286,10 +302,23 @@ function ClickComentario(clickId)
         var nuevoComentario = {action:"nuevoComentario",texto:texto, idUser:idUser, idPhoto:parseInt(idPhoto)};
         socket.send(JSON.stringify(nuevoComentario));
         
+        var listaComentarios = {action:"listaComentarios", idPhoto:parseInt(idPhoto)};
+        socket.send(JSON.stringify(listaComentarios));
+        
     }
     
 }
 
+function salir()
+{
+
+            document.getElementById("sectionLogin").style.display="block";
+            document.getElementsByClassName("best")[0].style.display="none";
+            document.getElementById("indexfot").style.display="none";
+            document.getElementById("buscar").style.display="none";
+            document.getElementById("salir").style.display="none"; 
+    
+}
 
 
 

@@ -224,6 +224,24 @@ int Server::StartServer(int puerto)
 
                                 } //end if
 
+                                if (action == "listaComentarios")
+                                {
+
+                                    json respuesta;
+                                    respuesta["action"] = "listacomentarios";
+
+                                    std::list<Comments> comen = Comments::find(receivedObject["idPhoto"]);
+                                    unsigned long contador = 0;
+                                    for(Comments coment : comen)
+                                    {
+                                        json comentario = coment.toJSON();
+                                        respuesta["lista"][contador] = comentario;
+                                        contador ++;
+                                    }
+                                    webSocket->send(respuesta.dump());
+
+                                } // end if
+
                             } // end if
 
                         } // end if

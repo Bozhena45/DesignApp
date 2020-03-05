@@ -13,7 +13,7 @@ La aplicación la puedes encontrar subida en GitHub.
 
 Mi proyecto se ha realizado en el sistema operativo Linux.
 En la parte técnica, DesignApp es una aplicación que está orientada a objetos. Está dividida con una clase Servidor y las diferentes clases que contiene la aplicación(usuario,foto,estilo y comentarios)
-Para hacer la conexión entre el Servidor y el cliente , he utilizado websocket para poder conectar mi Servidor con el cliente, lo he ido haciendo via mensajes JSON.
+Para hacer la conexión entre el Servidor y el cliente , he utilizado websocket , lo he ido haciendo via mensajes JSON.
 Para el diseño de la aplicación he ido utilizando html, css y javascript
 Cada vez que he ido actualizando todo lo que hago o modifico de la aplicación ,lo he ido guardando en el git (Git es un software de control de versiones), pero para utilizar
 el git lo he tenido que instalar en mi máquina virtual.
@@ -39,7 +39,9 @@ Resumido:
 **Ejemplos para poder utilizar la aplicación sin estar registrado**
 
 1) Una vez instalada la aplicación o descargada de github, puedes probar la aplicación sin tener que registrarte. Hay un usuario creado, con el cuál puedes acceder.
-usuario : Pepa@gmail.com contraseña :1234
+usuario : pepa@gmail.com contraseña :1234
+
+
 2)La base de datos se llama DesignApp.
 
 

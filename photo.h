@@ -7,7 +7,7 @@ using json = nlohmann::json;
 /**
  * @brief Clase para el manejo de Fotos
  *
- * Esta clase sirve para la creación de una foto y poder insertarla dentro de la base de datos,
+ * Esta clase sirve para la creación de la url de una foto y poder insertarla dentro de la base de datos,
  * tambien sirve para crear un JSON a partir de la libreria json = nlohmann::json, y este mensaje
  * JSON es lo que se le enviará al cliente
  */

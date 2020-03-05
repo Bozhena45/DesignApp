@@ -326,6 +326,9 @@ function salir()
             document.getElementById("indexfot").style.display="none";
             document.getElementById("buscar").style.display="none";
             document.getElementById("salir").style.display="none"; 
+            
+            document.getElementById("email").value = "";
+            document.getElementById("pass").value = "";
     
 }
 

@@ -19,7 +19,7 @@ void Server::processLine(std::string line)
 
 void Server::ReadFile()
 {
-    QString nombreArchivo = "./baseDatos.conf";
+    QString nombreArchivo = "../baseDatos.conf";
 
     if (QFile::exists(nombreArchivo))
     {

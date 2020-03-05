@@ -266,48 +266,54 @@ function HomePerfilUsuario()
     document.getElementById("headerPrincipal").style.display="block";
 }
 
+
+
 function ClickComentario(clickId)
 {
     
     
     var parent = clickId.parentElement;
     
-    var node = document.createElement("DIV");
-    node.setAttribute("class", "comentario");
-    
-    var titulo = document.createElement("H3");
-    titulo.innerHTML = "Nuevo comentario:";
-    node.appendChild(titulo);
-    
-    var input = document.createElement("INPUT");
-    input.type = "text"
-    input.placeholder = "comentario.."
-    input.setAttribute("id", "coment");
-    node.appendChild(input);
-    
-    var buton = document.createElement("INPUT");
-    buton.type = "button";
-    buton.value = "Enviar";
-    node.appendChild(buton);
-    
-    parent.appendChild(node);
-    
-    var photo = parent.parentElement.id;
-    var photoSplit = photo.split("foto")
-    
-    buton.onclick = function nuevoComent()
+    var comentario = parent.childNodes[9];
+    if(comentario == null)
     {
+        var node = document.createElement("DIV");
+        node.setAttribute("class", "comentario");
         
-        var texto = input.value;
-        var idUser = user.id;
-        var idPhoto = photoSplit[1];
+        var titulo = document.createElement("H3");
+        titulo.innerHTML = "Nuevo comentario:";
+        node.appendChild(titulo);
         
-        var nuevoComentario = {action:"nuevoComentario",texto:texto, idUser:idUser, idPhoto:parseInt(idPhoto)};
-        socket.send(JSON.stringify(nuevoComentario));
+        var input = document.createElement("INPUT");
+        input.type = "text"
+        input.placeholder = "comentario.."
+        input.setAttribute("id", "coment");
+        node.appendChild(input);
         
-        var listaComentarios = {action:"listaComentarios", idPhoto:parseInt(idPhoto)};
-        socket.send(JSON.stringify(listaComentarios));
+        var buton = document.createElement("INPUT");
+        buton.type = "button";
+        buton.value = "Enviar";
+        node.appendChild(buton);
         
+        parent.appendChild(node);
+        
+        var photo = parent.parentElement.id;
+        var photoSplit = photo.split("foto")
+        
+        buton.onclick = function nuevoComent()
+        {
+            
+            var texto = input.value;
+            var idUser = user.id;
+            var idPhoto = photoSplit[1];
+            
+            var nuevoComentario = {action:"nuevoComentario",texto:texto, idUser:idUser, idPhoto:parseInt(idPhoto)};
+            socket.send(JSON.stringify(nuevoComentario));
+            
+            var listaComentarios = {action:"listaComentarios", idPhoto:parseInt(idPhoto)};
+            socket.send(JSON.stringify(listaComentarios));
+            
+        }
     }
     
 }

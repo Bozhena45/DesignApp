@@ -7,6 +7,8 @@ Es una aplicación diseñada tanto para IOS como para Android.
 Esta aplicación está conectada a una base de datos y a un Servidor via websocket. Los mensajes que se envían y se reciben son mensajes JSON.
 Consiste en poder subir fotos relacionadas con tus looks que más te gusten y así poder mostrarlos a tus seguidores y darle me gusta y también poder comentar.
 La aplicación la puedes encontrar subida en GitHub.
+
+
 **Como se ha ido haciendo el proyecto (que tecnología he utilizado)**
 
 Mi proyecto se ha realizado en el sistema operativo Linux.
@@ -68,9 +70,7 @@ una nueva pestaña en la cuál podrás dejar un comentario.
 
 2) Me habría gustado que al darle clic al botón "me gusta" se vaya actualizando en la base de datos y además vaya cambiando de color el icono.
 
-3) Al darle a enviar comentario se guarda en la base de datos pero no se recarga todavía en la aplicación.
-
-4) No se pueden buscar  los usuarios registrados porque debería hacerle a cada uno un perfil propio.
+3) No se pueden buscar  los usuarios registrados porque debería hacerle a cada uno un perfil propio.
 
 *********************************************************************************************
 ### Gestión de errores:

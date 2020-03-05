@@ -28,7 +28,6 @@ class User {
 var user;
 
 let socket = new WebSocket("ws://localhost:9990");
-
 var g_idMessage = 0;
 
 function getIdMessage()
@@ -92,7 +91,10 @@ socket.onmessage = function(event) {
     
     if (mensaje.action == "subirFoto")
     {
-        document.getElementById("FotosubidaExito").style.display="block";
+    
+            document.getElementById("FotosubidaExito").style.display="block";
+        
+        
     }
     
     if (mensaje.action == "listacomentarios")
@@ -101,7 +103,7 @@ socket.onmessage = function(event) {
         var figure = document.getElementById("foto"+mensaje.lista[0].idphoto);
         var figcaption = figure.childNodes[3];
         var divComentario = figcaption.childNodes[7];
-        
+        divComentario.innerHTML ="";
         for (var i of mensaje.lista)
         {
             divComentario.innerHTML += i.comment + "<br/>";
@@ -187,6 +189,10 @@ function register()
     document.getElementById("sectionLogin").style.display="none";
     document.getElementsByClassName("registro")[0].style.display="block";
     
+    
+    document.getElementById("nameUsuario").value = "";
+    document.getElementById("contraUsuario").value = "";
+    document.getElementById("emailUsuario").value = "";
 }
 
 
@@ -238,6 +244,7 @@ function PerfilUsuario()
 function subirFoto()
 {
         document.getElementById("FotoYtipo").style.display="flex";
+        document.getElementById("imagen").value="";
         document.getElementsByClassName("best")[0].style.display="none";
         document.getElementById("headerPerfilUsuario").style.display="block";
         document.getElementById("headerPrincipal").style.display="none";
@@ -270,13 +277,17 @@ function HomePerfilUsuario()
 
 function ClickComentario(clickId)
 {
-    
-    
     var parent = clickId.parentElement;
-    
     var comentario = parent.childNodes[9];
-    if(comentario == null)
+   
+    if(comentario != null)
     {
+        //console.log(parent.parentNode);
+        //parent.parentNode.childNodes[2].childNodes[4].innerHTML=""; //childNodes[3].getElementsByClassName("comentarios"));
+    
+        
+    }else{
+        
         var node = document.createElement("DIV");
         node.setAttribute("class", "comentario");
         
@@ -299,19 +310,21 @@ function ClickComentario(clickId)
         
         var photo = parent.parentElement.id;
         var photoSplit = photo.split("foto")
-        
-        buton.onclick = function nuevoComent()
-        {
             
-            var texto = input.value;
-            var idUser = user.id;
             var idPhoto = photoSplit[1];
-            
-            var nuevoComentario = {action:"nuevoComentario",texto:texto, idUser:idUser, idPhoto:parseInt(idPhoto)};
-            socket.send(JSON.stringify(nuevoComentario));
-            
             var listaComentarios = {action:"listaComentarios", idPhoto:parseInt(idPhoto)};
             socket.send(JSON.stringify(listaComentarios));
+        buton.onclick = function nuevoComent()
+        {
+            var texto = input.value;
+            var idUser = user.id;
+            var nuevoComentario = {action:"nuevoComentario",texto:texto, idUser:idUser, idPhoto:parseInt(idPhoto)};
+            socket.send(JSON.stringify(nuevoComentario));
+            var listaComentarios = {action:"listaComentarios", idPhoto:parseInt(idPhoto)};
+            socket.send(JSON.stringify(listaComentarios));
+            document.getElementById("coment").value="";
+            
+            
             
         }
     }
@@ -324,6 +337,7 @@ function salir()
             document.getElementById("sectionLogin").style.display="block";
             document.getElementsByClassName("best")[0].style.display="none";
             document.getElementById("indexfot").style.display="none";
+            document.getElementsByClassName("registro")[0].style.display="none";
             document.getElementById("buscar").style.display="none";
             document.getElementById("salir").style.display="none"; 
             

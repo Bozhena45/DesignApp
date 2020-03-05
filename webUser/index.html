@@ -41,8 +41,8 @@
  		                         <figcaption>
                                    <table>
                                         <tr>
-                                            <th>1500</th>
-                                            <th>500</th>
+                                            <th>0</th>
+                                            <th>0</th>
                                         <tr>
                                          <tr>
                                             <td>Seguidores</td>
@@ -150,11 +150,11 @@
         <br>
 
             <div  style =" border: double;padding: 40px;margin: auto;color: #24DDDD;">
-            <img src="foto2.jpg" style="width: 100%;height: 300px"> </div>
+           </div>
         <br>
         <br>
            <div  style =" border: double;padding: 40px;margin: auto;color: #24DDDD;">
-           <img src="foto2.jpg" style="width: 100%;height: 300px"> </div>
+           </div>
            
         </article>
   
@@ -167,7 +167,7 @@
   </figure>
   
   <form>
-               URL: <input id="imagen" type=“text”  name="imagen" required />
+               URL: <input id="imagen" type=“text”  name="imagen">
 		            <br>
 		            <br>
                         <select id="Estilo">
@@ -201,7 +201,7 @@
 			
 			   <form action="html/MiAplicacion.html" method="GET">
 				 	
-		        <input id="email" type=“text” placeholder="email" name="usuario" required />
+		        <input id="email" type=“email” placeholder="email" name="usuario" required />
 		            <br>
 		            <br>
 		        <input id="pass" type="password" placeholder="contraseña" name="contraseña"  required />
@@ -282,6 +282,7 @@
 	<section class="registro">
 
 	<div style="color: #16DFDF">
+        <i class="fas fa-home"style="font-size: 30px;justify-content: left;align-items: left;display:flex;" onClick="salir()"></i>
 		<form action="login.html" method="GET" >
 			<center>
 		<p style="color:#7f8c8d;text-shadow: 1px 1px 1px;">NombreUsuario:</p> <input id="nameUsuario" type=“text” placeholder="usuario" name="usuario" required/>

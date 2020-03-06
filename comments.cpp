@@ -8,7 +8,7 @@ Comments::Comments()
 
 }
 
-Comments::Comments(std::string comment,int idPhoto,int idUser)
+Comments::Comments(std::string comment,int idUser,int idPhoto)
 {
 
    this->m_idUser = idUser;
@@ -20,11 +20,11 @@ bool Comments::CreateComment()
 {
 
     QSqlQuery query;
-    query.prepare("INSERT into comment (comment,id_user,id_photo) values (:comment,:iduser,:idphoto)");
+    query.prepare("INSERT into comment (comment,id_photo,id_user) values (:comment,:idphoto,:iduser)");
 
     query.bindValue(":comment", QString::fromStdString(m_comment));
-    query.bindValue(":iduser", m_idUser);
     query.bindValue(":idphoto", m_idPhoto);
+    query.bindValue(":iduser", m_idUser);
     query.exec();
 
     return true;

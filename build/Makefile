@@ -12,10 +12,10 @@ MAKEFILE      = Makefile
 
 CC            = gcc
 CXX           = g++
-DEFINES       = -DQT_DEPRECATED_WARNINGS -DQT_QML_DEBUG -DQT_SQL_LIB -DQT_CORE_LIB
-CFLAGS        = -pipe -g -Wall -W -D_REENTRANT -fPIC $(DEFINES)
-CXXFLAGS      = -pipe -g -std=gnu++11 -Wall -W -D_REENTRANT -fPIC $(DEFINES)
-INCPATH       = -I../../ServidorDesignApp -I. -I../websocket/include -isystem /usr/include/qt5 -isystem /usr/include/qt5/QtSql -isystem /usr/include/qt5/QtCore -I. -I/usr/lib64/qt5/mkspecs/linux-g++
+DEFINES       = -DQT_DEPRECATED_WARNINGS -DQT_GUI_LIB -DQT_SQL_LIB -DQT_CORE_LIB -DQT_QML_DEBUG
+CFLAGS        = -pipe -g -D_REENTRANT -Wall -W -fPIC $(DEFINES)
+CXXFLAGS      = -pipe -g -std=gnu++11 -D_REENTRANT -Wall -W -fPIC $(DEFINES)
+INCPATH       = -I../../ServidorDesignApp -I. -I../websocket/include -isystem /usr/include/qt5 -isystem /usr/include/qt5/QtGui -isystem /usr/include/qt5/QtSql -isystem /usr/include/qt5/QtCore -I. -isystem /usr/include/libdrm -I/usr/lib64/qt5/mkspecs/linux-g++
 QMAKE         = /usr/bin/qmake-qt5
 DEL_FILE      = rm -f
 CHK_DIR_EXISTS= test -d
@@ -38,7 +38,7 @@ DISTNAME      = ServidorDesignApp1.0.0
 DISTDIR = /home/usuario/Servidores/ServidorDesignApp/build/.tmp/ServidorDesignApp1.0.0
 LINK          = g++
 LFLAGS        = 
-LIBS          = $(SUBLIBS) -pthread -lz -lssl -lcrypto -L/home/usuario/Servidores/ServidorDesignApp/websocket/lib/ -lixwebsocket -lQt5Sql -L/usr/lib64 -lQt5Core -lpthread 
+LIBS          = $(SUBLIBS) -pthread -lz -lssl -lcrypto -L/home/usuario/Servidores/ServidorDesignApp/websocket/lib/ -lixwebsocket -lQt5Gui -L/usr/lib64 -lQt5Sql -lQt5Core -lGL -lpthread 
 AR            = ar cqs
 RANLIB        = 
 SED           = sed
@@ -225,12 +225,13 @@ DIST          = /usr/lib64/qt5/mkspecs/features/spec_pre.prf \
 		/usr/lib64/qt5/mkspecs/features/default_pre.prf \
 		/usr/lib64/qt5/mkspecs/features/resolve_config.prf \
 		/usr/lib64/qt5/mkspecs/features/default_post.prf \
-		/usr/lib64/qt5/mkspecs/features/qml_debug.prf \
-		/usr/lib64/qt5/mkspecs/features/warn_on.prf \
 		/usr/lib64/qt5/mkspecs/features/qt.prf \
 		/usr/lib64/qt5/mkspecs/features/resources.prf \
 		/usr/lib64/qt5/mkspecs/features/moc.prf \
+		/usr/lib64/qt5/mkspecs/features/unix/opengl.prf \
 		/usr/lib64/qt5/mkspecs/features/unix/thread.prf \
+		/usr/lib64/qt5/mkspecs/features/qml_debug.prf \
+		/usr/lib64/qt5/mkspecs/features/warn_on.prf \
 		/usr/lib64/qt5/mkspecs/features/qmake_use.prf \
 		/usr/lib64/qt5/mkspecs/features/file_copies.prf \
 		/usr/lib64/qt5/mkspecs/features/testcase_targets.prf \
@@ -421,12 +422,13 @@ Makefile: ../ServidorDesignApp.pro /usr/lib64/qt5/mkspecs/linux-g++/qmake.conf /
 		/usr/lib64/qt5/mkspecs/features/default_pre.prf \
 		/usr/lib64/qt5/mkspecs/features/resolve_config.prf \
 		/usr/lib64/qt5/mkspecs/features/default_post.prf \
-		/usr/lib64/qt5/mkspecs/features/qml_debug.prf \
-		/usr/lib64/qt5/mkspecs/features/warn_on.prf \
 		/usr/lib64/qt5/mkspecs/features/qt.prf \
 		/usr/lib64/qt5/mkspecs/features/resources.prf \
 		/usr/lib64/qt5/mkspecs/features/moc.prf \
+		/usr/lib64/qt5/mkspecs/features/unix/opengl.prf \
 		/usr/lib64/qt5/mkspecs/features/unix/thread.prf \
+		/usr/lib64/qt5/mkspecs/features/qml_debug.prf \
+		/usr/lib64/qt5/mkspecs/features/warn_on.prf \
 		/usr/lib64/qt5/mkspecs/features/qmake_use.prf \
 		/usr/lib64/qt5/mkspecs/features/file_copies.prf \
 		/usr/lib64/qt5/mkspecs/features/testcase_targets.prf \
@@ -434,6 +436,7 @@ Makefile: ../ServidorDesignApp.pro /usr/lib64/qt5/mkspecs/linux-g++/qmake.conf /
 		/usr/lib64/qt5/mkspecs/features/yacc.prf \
 		/usr/lib64/qt5/mkspecs/features/lex.prf \
 		../ServidorDesignApp.pro \
+		/usr/lib64/libQt5Gui.prl \
 		/usr/lib64/libQt5Sql.prl \
 		/usr/lib64/libQt5Core.prl
 	$(QMAKE) -o Makefile ../ServidorDesignApp.pro -spec linux-g++ CONFIG+=debug CONFIG+=qml_debug
@@ -600,12 +603,13 @@ Makefile: ../ServidorDesignApp.pro /usr/lib64/qt5/mkspecs/linux-g++/qmake.conf /
 /usr/lib64/qt5/mkspecs/features/default_pre.prf:
 /usr/lib64/qt5/mkspecs/features/resolve_config.prf:
 /usr/lib64/qt5/mkspecs/features/default_post.prf:
-/usr/lib64/qt5/mkspecs/features/qml_debug.prf:
-/usr/lib64/qt5/mkspecs/features/warn_on.prf:
 /usr/lib64/qt5/mkspecs/features/qt.prf:
 /usr/lib64/qt5/mkspecs/features/resources.prf:
 /usr/lib64/qt5/mkspecs/features/moc.prf:
+/usr/lib64/qt5/mkspecs/features/unix/opengl.prf:
 /usr/lib64/qt5/mkspecs/features/unix/thread.prf:
+/usr/lib64/qt5/mkspecs/features/qml_debug.prf:
+/usr/lib64/qt5/mkspecs/features/warn_on.prf:
 /usr/lib64/qt5/mkspecs/features/qmake_use.prf:
 /usr/lib64/qt5/mkspecs/features/file_copies.prf:
 /usr/lib64/qt5/mkspecs/features/testcase_targets.prf:
@@ -613,6 +617,7 @@ Makefile: ../ServidorDesignApp.pro /usr/lib64/qt5/mkspecs/linux-g++/qmake.conf /
 /usr/lib64/qt5/mkspecs/features/yacc.prf:
 /usr/lib64/qt5/mkspecs/features/lex.prf:
 ../ServidorDesignApp.pro:
+/usr/lib64/libQt5Gui.prl:
 /usr/lib64/libQt5Sql.prl:
 /usr/lib64/libQt5Core.prl:
 qmake: FORCE
@@ -662,7 +667,7 @@ compiler_moc_predefs_make_all: moc_predefs.h
 compiler_moc_predefs_clean:
 	-$(DEL_FILE) moc_predefs.h
 moc_predefs.h: /usr/lib64/qt5/mkspecs/features/data/dummy.cpp
-	g++ -pipe -g -std=gnu++11 -Wall -W -dM -E -o moc_predefs.h /usr/lib64/qt5/mkspecs/features/data/dummy.cpp
+	g++ -pipe -g -std=gnu++11 -dM -E -o moc_predefs.h /usr/lib64/qt5/mkspecs/features/data/dummy.cpp
 
 compiler_moc_header_make_all:
 compiler_moc_header_clean:

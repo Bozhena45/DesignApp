@@ -224,12 +224,28 @@ function comment()
 
 function subirImagen()
 {
-    var photo = document.getElementById("imagen").value;
+    var photo = document.getElementById("imagen");
     var style = document.getElementById("Estilo").value;
     var id = user.id;
     
-    var subirFoto = {action:"subirFoto",imagen:photo,estilo:style, idUser:id};
-    socket.send(JSON.stringify(subirFoto));
+    var file = photo.files[0];
+    var reader = new FileReader();
+    
+    reader.onloadend = function()
+    {
+        
+        var base64 = reader.result;
+        
+        var subirFoto = {action:"subirFoto",estilo:style, idUser:id, base64:base64};
+        socket.send(JSON.stringify(subirFoto));
+        
+    }
+    
+    reader.readAsDataURL(file);
+    
+    
+    //var subirFoto = {action:"subirFoto",imagen:photo,estilo:style, idUser:id};
+    //socket.send(JSON.stringify(subirFoto));
 }
 
 function PerfilUsuario()
@@ -340,6 +356,7 @@ function salir()
             document.getElementsByClassName("registro")[0].style.display="none";
             document.getElementById("buscar").style.display="none";
             document.getElementById("salir").style.display="none"; 
+            document.getElementById("errorContra").style.display="none";
             
             document.getElementById("email").value = "";
             document.getElementById("pass").value = "";

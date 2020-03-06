@@ -1,10 +1,9 @@
-QT -= gui
 QT += sql
 
 TRANSLATIONS  += ServidorDesignApp_es_ES.ts
 TRANSLATIONS  += ServidorDesignApp_en_US.ts
 
-CONFIG += c++11 console
+CONFIG += c++11 console qt
 CONFIG -= app_bundle
 
 # The following define makes your compiler emit warnings if you use

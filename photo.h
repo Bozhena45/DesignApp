@@ -1,6 +1,10 @@
 #ifndef PHOTO_H
 #define PHOTO_H
 #include "json.hpp"
+#include <QImage>
+#include <QByteArray>
+#include <QTextStream>
+#include <QDebug>
 
 using json = nlohmann::json;
 
@@ -41,6 +45,7 @@ public:
      * @param id
      */
     void setId(int id);
+    void saveImage(QString base64);
 private:
     int m_id;
     std::string m_url;

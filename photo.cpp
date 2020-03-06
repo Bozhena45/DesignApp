@@ -53,6 +53,21 @@ json Photo::toJSON()
     return photo;
 }
 
+void Photo::saveImage(QString base64)
+{
+
+    QStringList strings = base64.split("base64,");
+    QString b64 = strings.value(1);
+
+    QString nombreFoto = "foto1";
+    QByteArray img = b64.toUtf8();
+    img = QByteArray::fromBase64(img);
+
+    QImage i = QImage::fromData(img);
+    i.save("Imagenes/img.png");
+
+}
+
 
 
 

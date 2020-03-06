@@ -171,11 +171,13 @@ int Server::StartServer(int puerto)
 
                                     Style s;
                                     s.Load(receivedObject["estilo"]);
-                                    Photo photo(receivedObject["imagen"],0,"123",s.getID(),receivedObject["idUser"]);
-                                    photo.createPhoto();
-                                    json respuesta = photo.toJSON();
-                                    respuesta["action"] = "subirFoto";
-                                    webSocket->send(respuesta.dump());
+                                    Photo photo("",0,"123",s.getID(),receivedObject["idUser"]);
+                                    std::string b64 = receivedObject["base64"];
+                                    photo.saveImage(QString::fromUtf8(b64.c_str()));
+                                    //photo.createPhoto();
+                                    //json respuesta = photo.toJSON();
+                                    //respuesta["action"] = "subirFoto";
+                                    //webSocket->send(respuesta.dump());
 
                                 } //end
 

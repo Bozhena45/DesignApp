@@ -46,8 +46,6 @@ void Style::load(int id)
         int id = query.value("id_style").toInt();
         QString type = query.value("tipo").toString();
 
-        qDebug() << "estilo: " << type;
-
         m_idStyle = id;
         m_tipo = type.toUtf8().constData();
 

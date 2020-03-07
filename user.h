@@ -66,7 +66,8 @@ public:
      * @param id
      */
     void setId(int id);
-
+    void load(int id);
+    std::string getNombre();
 
 private:
     ///Los parámetros del usuario

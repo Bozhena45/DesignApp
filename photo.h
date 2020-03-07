@@ -49,6 +49,7 @@ public:
     void setId(int id);
     static void saveImage(QString base64, std::string name);
     static std::list<Photo> find(int idUser);
+    static std::list<Photo> find();
 
 private:
     int m_id;

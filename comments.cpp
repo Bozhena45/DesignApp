@@ -35,7 +35,7 @@ std::list<Comments> Comments::find (int id_photo)
     std::list<Comments> comentarios{};
 
     QSqlQuery query;
-    query.prepare("SELECT * from comment where id_user=:idphoto");
+    query.prepare("SELECT * from comment where id_photo=:idphoto");
     query.bindValue(":idphoto",id_photo);
     query.exec();
 
@@ -43,10 +43,10 @@ std::list<Comments> Comments::find (int id_photo)
     {
 
         QString comentario = query.value("comment").toString();
-        int iduser = query.value("id_photo").toInt();
-        int idphoto = query.value("id_user").toInt();
+        int iduser = query.value("id_user").toInt();
+        int idphoto = query.value("id_photo").toInt();
 
-        Comments coment(comentario.toUtf8().constData(),idphoto,iduser);
+        Comments coment(comentario.toUtf8().constData(),iduser, idphoto);
         comentarios.push_back(coment);
 
     }

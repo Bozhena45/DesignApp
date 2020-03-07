@@ -99,9 +99,9 @@ socket.onmessage = function(event) {
     if (mensaje.action == "listacomentarios")
     {
         
-        var figure = document.getElementById("foto"+mensaje.lista[0].idphoto);
-        var figcaption = figure.childNodes[3];
-        var divComentario = figcaption.childNodes[7];
+        var figure = document.getElementById(mensaje.lista[0].idphoto);
+        var figcaption = figure.childNodes[1];
+        var divComentario = figcaption.childNodes[3];
         divComentario.innerHTML ="";
         for (var i of mensaje.lista)
         {
@@ -136,6 +136,91 @@ socket.onmessage = function(event) {
         
     }
     
+    if(mensaje.action == "listaTodasFotos")
+    {
+        
+        var seccion = document.getElementsByClassName("best")[0];
+        seccion.innerHTML = "";
+        
+        for(var foto of mensaje.lista)
+        {
+            
+            var article = document.createElement("ARTICLE");
+            var figure = document.createElement("FIGURE");
+            figure.setAttribute("id", foto.id);
+            var imagen = document.createElement("IMG");
+            imagen.setAttribute("src", "data:image/jpg;base64, " + foto.base64);
+            var  figcaption = document.createElement("FIGCAPTION");
+            var nombre = document.createElement("P");
+            nombre.innerHTML = foto.iduser;
+            var corazon = document.createElement("I");
+            corazon.setAttribute("class", "far fa-heart");
+            var coment = document.createElement("I");
+            coment.setAttribute("class", "far fa-comment");
+            coment.style.float = "right";
+            var comentarios = document.createElement("DIV");
+            
+            figcaption.appendChild(nombre);
+            figcaption.appendChild(corazon);
+            figcaption.appendChild(coment);
+            figcaption.appendChild(comentarios);
+            figure.appendChild(imagen);
+            figure.appendChild(figcaption);
+            article.appendChild(figure);
+            seccion.appendChild(article);
+            
+            coment.onclick=function(){
+                
+                if(figcaption.childNodes[4] != null)
+                {
+                    figcaption.childNodes[4].remove();
+                    comentarios.innerHTML = "";
+                }
+                else
+                {
+                   
+                    var node = document.createElement("DIV");
+                    node.setAttribute("class", "comentario");
+                    
+                    var titulo = document.createElement("H3");
+                    titulo.innerHTML = "Nuevo comentario:";
+                    node.appendChild(titulo);
+                    
+                    var input = document.createElement("INPUT");
+                    input.type = "text"
+                    input.placeholder = "comentario.."
+                    input.setAttribute("id", "coment");
+                    node.appendChild(input);
+                    
+                    var buton = document.createElement("INPUT");
+                    buton.type = "button";
+                    buton.value = "Enviar";
+                    node.appendChild(buton);
+                    
+                    figcaption.appendChild(node);
+                    
+                    var listaComentarios = {action:"listaComentarios", idPhoto:foto.id};
+                    socket.send(JSON.stringify(listaComentarios));
+                    
+                    buton.onclick = function nuevoComent()
+                    {
+                        var texto = input.value;
+                        var idUser = user.id;
+                        var nuevoComentario = {action:"nuevoComentario",texto:texto, idUser:idUser, idPhoto:foto.id};
+                        socket.send(JSON.stringify(nuevoComentario));
+                        var listaComentarios = {action:"listaComentarios", idPhoto:foto.id};
+                        socket.send(JSON.stringify(listaComentarios));
+                        document.getElementById("coment").value="";
+
+                    }
+                    
+                }
+                
+            }
+            
+        }
+        
+    }
 
 };
 
@@ -153,6 +238,7 @@ socket.onclose = function(event) {
     document.getElementById("sectionLogin").style.display="none";
     document.getElementsByClassName("best")[0].style.display="none";
     document.getElementsByClassName("registro")[0].style.display="none";
+    document.getElementById("indexfot").style.display="none";
     
     document.getElementsByClassName("error")[0].style.display="block";
     
@@ -172,6 +258,7 @@ socket.onerror = function(error) {
     document.getElementById("sectionLogin").style.display="none";
     document.getElementsByClassName("best")[0].style.display="none";
     document.getElementsByClassName("registro")[0].style.display="none";
+    document.getElementById("indexfot").style.display="none";
     
     document.getElementsByClassName("error")[0].style.display="block";
     
@@ -218,7 +305,10 @@ function createUser()
         
     }else {
         var crearUsuario = {action:"crearUsuario",id:idMensaje,nombre:name,correoElectronico:email,contrasenya:password};
-   socket.send(JSON.stringify(crearUsuario));
+        socket.send(JSON.stringify(crearUsuario));
+        
+        var listaFotos = {action:"listaTodasFotos"};
+        socket.send(JSON.stringify(listaFotos));
     }
 
    
@@ -234,6 +324,9 @@ function login()
    
    var entrar = {action:"entrar",email:email,contrasenya:contrasenya};
    socket.send(JSON.stringify(entrar));
+   
+   var listaFotos = {action:"listaTodasFotos"};
+   socket.send(JSON.stringify(listaFotos));
 
    
 }
@@ -353,6 +446,9 @@ function HomePerfilUsuario()
     document.getElementById("PerfilUser").style.display="none";
     document.getElementsByClassName("best")[0].style.display="block";
     document.getElementById("headerPrincipal").style.display="block";
+    
+    var listaFotos = {action:"listaTodasFotos"};
+    socket.send(JSON.stringify(listaFotos));
 }
 
 

@@ -264,6 +264,26 @@ int Server::StartServer(int puerto)
 
                                 }
 
+                                if (action == "listaTodasFotos")
+                                {
+
+                                    json respuesta;
+                                    respuesta["action"] = "listaTodasFotos";
+
+                                    std::list<Photo> fotos = Photo::find();
+                                    unsigned long contador = 0;
+                                    for(Photo foto : fotos)
+                                    {
+
+                                        json fotoJson = foto.base64JSON();
+                                        respuesta["lista"][contador] = fotoJson;
+                                        contador++;
+
+                                    }
+                                    webSocket->send(respuesta.dump());
+
+                                }
+
                             } // end if
 
                         } // end if

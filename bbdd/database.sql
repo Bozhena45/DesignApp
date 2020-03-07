@@ -55,8 +55,8 @@ SET default_with_oids = false;
 CREATE TABLE public.comment (
     id_comment integer NOT NULL,
     comment character varying(200) NOT NULL,
-    id_user integer NOT NULL,
-    id_photo integer NOT NULL
+    id_photo integer NOT NULL,
+    id_user integer NOT NULL
 );
 
 
@@ -224,14 +224,10 @@ ALTER TABLE ONLY public.usuario ALTER COLUMN id_user SET DEFAULT nextval('public
 -- Data for Name: comment; Type: TABLE DATA; Schema: public; Owner: postgres
 --
 
-COPY public.comment (id_comment, comment, id_user, id_photo) FROM stdin;
-2	Esta guapa	2	15
-3	aa	2	15
-4	hola	2	15
-5	jaja	2	15
-6	hola	2	15
-7	me gusta	2	15
-8	Eres muy fea	3	15
+COPY public.comment (id_comment, comment, id_photo, id_user) FROM stdin;
+9	Muy guapa	11	15
+10	Ere to fea	11	15
+11	te comento	21	33
 \.
 
 
@@ -240,15 +236,8 @@ COPY public.comment (id_comment, comment, id_user, id_photo) FROM stdin;
 --
 
 COPY public.photo (id_photo, url, size, mg, id_user, idstyle) FROM stdin;
-2	kk	123	0	15	2
-3	kk	123	0	15	2
-4	kk	123	0	15	2
-5	ññ	123	0	15	1
-6	aa	123	0	15	3
-7	aa	123	0	15	3
-8	aa	123	0	15	3
-9	sss	123	0	15	4
-10	hhh	123	0	15	1
+11	foto1.jpg	123	0	15	4
+21	foto3.jpg	123	0	33	1
 \.
 
 
@@ -270,9 +259,7 @@ COPY public.style (id_style, tipo) FROM stdin;
 
 COPY public.usuario (id_user, name, email, password) FROM stdin;
 15	Pepa	Pepa@gmail.com	$2a$06$iwKlEWb.8oC.cgPTkqpfWu.yz1WwvNZVmk4t5YMMRLgepy.SnaXF2
-26	bozhena	Bozhena@gmail.com	$2a$06$aSgj30DpvYaIRYUAIzT3ZumlGW51HKTumbvwxrYuShJSCZ5WGGYrS
-27	as	aa	$2a$06$Y11VY4CuhA40GHV8zmN6ruV8OlS9GgEn8XyZ/3qb06p/8a4CfMXHm
-28	Arturo	arturo	$2a$06$BLnv4MClUW7dIdyUB2pIzOQDxbuHXYtbbJpjNM8.zMXbw7XVJhM3u
+33	test	test@gmail.com	$2a$06$6VZnHhVal9Gga8v8EMjxiOqR9JD7Tn5vfeDE8gsZ5N1TgUbkTTT0S
 \.
 
 
@@ -280,14 +267,14 @@ COPY public.usuario (id_user, name, email, password) FROM stdin;
 -- Name: comment_id_comment_seq; Type: SEQUENCE SET; Schema: public; Owner: postgres
 --
 
-SELECT pg_catalog.setval('public.comment_id_comment_seq', 8, true);
+SELECT pg_catalog.setval('public.comment_id_comment_seq', 11, true);
 
 
 --
 -- Name: photo_id_photo_seq; Type: SEQUENCE SET; Schema: public; Owner: postgres
 --
 
-SELECT pg_catalog.setval('public.photo_id_photo_seq', 10, true);
+SELECT pg_catalog.setval('public.photo_id_photo_seq', 21, true);
 
 
 --
@@ -301,7 +288,7 @@ SELECT pg_catalog.setval('public.style_id_style_seq', 4, true);
 -- Name: usuario_id_user_seq; Type: SEQUENCE SET; Schema: public; Owner: postgres
 --
 
-SELECT pg_catalog.setval('public.usuario_id_user_seq', 28, true);
+SELECT pg_catalog.setval('public.usuario_id_user_seq', 33, true);
 
 
 --

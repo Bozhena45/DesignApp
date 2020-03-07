@@ -5,6 +5,7 @@
 #include <QByteArray>
 #include <QTextStream>
 #include <QDebug>
+#include <list>
 
 using json = nlohmann::json;
 
@@ -44,8 +45,11 @@ public:
      * Sirve para cambiar el ID que es un parámetro privado
      * @param id
      */
+    json base64JSON();
     void setId(int id);
     static void saveImage(QString base64, std::string name);
+    static std::list<Photo> find(int idUser);
+
 private:
     int m_id;
     std::string m_url;

@@ -259,8 +259,19 @@ section#buscarUsuarioSection article figure figcaption{
     color: darkgreen;
     display: none;
 }
-/*Footer*/
 
+.imgUser figure{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 2rem 0;
+}
+.imgUser figure img{
+    max-height: 300px;
+    max-width: 300px;
+}
+
+/*Footer*/
 footer{
   display: none;
   flex-direction: column;

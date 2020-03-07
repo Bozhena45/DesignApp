@@ -111,6 +111,29 @@ socket.onmessage = function(event) {
         
     }
     
+    if(mensaje.action == "listaFotos")
+    {
+        
+        var seccion = document.getElementById("listaFotosUser");
+        seccion.innerHTML = "";
+        
+        for(var foto of mensaje.lista)
+        {
+            
+            var div = document.createElement("DIV");
+            div.setAttribute("class", "imgUser");
+            var figure = document.createElement("FIGURE");
+            var imagen = document.createElement("IMG");
+            imagen.setAttribute("src", "data:image/jpg;base64, " + foto.base64);
+            figure.appendChild(imagen);
+            div.appendChild(figure);
+            
+            seccion.appendChild(div);
+            
+        }
+        
+    }
+    
 
 };
 
@@ -243,13 +266,13 @@ function subirImagen()
         var subirFoto = {action:"subirFoto",estilo:style, idUser:id, base64:base64, imageName:imgName};
         socket.send(JSON.stringify(subirFoto));
         
+        var listaFotos = {action:"listaFotos", idUser:id};
+        socket.send(JSON.stringify(listaFotos));
+        
     }
     
     reader.readAsDataURL(file);
-    
-    
-    //var subirFoto = {action:"subirFoto",imagen:photo,estilo:style, idUser:id};
-    //socket.send(JSON.stringify(subirFoto));
+
 }
 
 function PerfilUsuario()
@@ -258,6 +281,12 @@ function PerfilUsuario()
         document.getElementsByClassName("best")[0].style.display="none";
         document.getElementById("headerPerfilUsuario").style.display="block";
         document.getElementById("headerPrincipal").style.display="none";
+        
+        var id = user.id;
+        
+        var listaFotos = {action:"listaFotos", idUser:id};
+        socket.send(JSON.stringify(listaFotos));
+        
 }
 
 

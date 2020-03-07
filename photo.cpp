@@ -3,6 +3,8 @@
 #include <QVariant>
 #include <QDebug>
 #include <QSqlError>
+#include <QFile>
+
 Photo::Photo()
 {
 
@@ -53,6 +55,29 @@ json Photo::toJSON()
     return photo;
 }
 
+json Photo::base64JSON()
+{
+
+    json photo;
+    photo["uurl"] = m_url;
+    photo["siize"] = m_like;
+    photo["like"] = m_size;
+    photo["iduser"] = m_idUser;
+    photo["idstyle"] = m_idStyle;
+
+    QString img("./imagenes/" + QString::fromUtf8(m_url.c_str()));
+    QFile* file = new QFile(img);
+    file->open(QIODevice::ReadOnly);
+    QByteArray image = file ->readAll();
+
+    QString base64 = QString(image.toBase64());
+
+    photo["base64"] =  base64.toUtf8().constData();
+
+    return photo;
+
+}
+
 void Photo::saveImage(QString base64, std::string name)
 {
 
@@ -70,6 +95,36 @@ void Photo::saveImage(QString base64, std::string name)
         img.save("./imagenes/" + QString::fromUtf8(name.c_str()));
 
     }
+
+}
+
+std::list<Photo> Photo::find(int idUser)
+{
+
+    std::list<Photo> fotos{};
+
+    QSqlQuery query;
+    query.prepare("SELECT * FROM photo WHERE id_user=:iduser");
+    query.bindValue(":iduser",idUser);
+    query.exec();
+
+    while (query.next())
+    {
+
+        QString url = query.value("url").toString();
+        int like = query.value("mg").toInt();
+        int size = query.value("size").toInt();
+        int idUser = query.value("id_user").toInt();
+        int idStyle = query.value("idstyle").toInt();
+
+        QString s = "" + size;
+        Photo foto(url.toUtf8().constData(), like, s.toUtf8().constData(), idStyle, idUser);
+
+        fotos.push_back(foto);
+
+    }
+
+    return fotos;
 
 }
 

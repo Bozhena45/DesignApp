@@ -174,10 +174,10 @@ int Server::StartServer(int puerto)
                                     std::string b64 = receivedObject["base64"];
                                     Photo::saveImage(QString::fromUtf8(b64.c_str()), receivedObject["imageName"]);
                                     Photo photo(receivedObject["imageName"],0,"123",s.getID(),receivedObject["idUser"]);
-                                    //photo.createPhoto();
-                                    //json respuesta = photo.toJSON();
-                                    //respuesta["action"] = "subirFoto";
-                                    //webSocket->send(respuesta.dump());
+                                    photo.createPhoto();
+                                    json respuesta = photo.toJSON();
+                                    respuesta["action"] = "subirFoto";
+                                    webSocket->send(respuesta.dump());
 
                                 } //end
 
@@ -243,6 +243,26 @@ int Server::StartServer(int puerto)
                                     webSocket->send(respuesta.dump());
 
                                 } // end if
+
+                                if (action == "listaFotos")
+                                {
+
+                                    json respuesta;
+                                    respuesta["action"] = "listaFotos";
+
+                                    std::list<Photo> fotos = Photo::find(receivedObject["idUser"]);
+                                    unsigned long contador = 0;
+                                    for(Photo foto : fotos)
+                                    {
+
+                                        json fotoJson = foto.base64JSON();
+                                        respuesta["lista"][contador] = fotoJson;
+                                        contador++;
+
+                                    }
+                                    webSocket->send(respuesta.dump());
+
+                                }
 
                             } // end if
 

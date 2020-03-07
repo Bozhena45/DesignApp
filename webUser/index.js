@@ -228,6 +228,10 @@ function subirImagen()
     var style = document.getElementById("Estilo").value;
     var id = user.id;
     
+    var path = photo.value;
+    var arrayPath = path.split("\\");
+    var imgName = arrayPath[arrayPath.length -1];
+    
     var file = photo.files[0];
     var reader = new FileReader();
     
@@ -236,7 +240,7 @@ function subirImagen()
         
         var base64 = reader.result;
         
-        var subirFoto = {action:"subirFoto",estilo:style, idUser:id, base64:base64};
+        var subirFoto = {action:"subirFoto",estilo:style, idUser:id, base64:base64, imageName:imgName};
         socket.send(JSON.stringify(subirFoto));
         
     }

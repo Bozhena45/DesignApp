@@ -45,7 +45,7 @@ public:
      * @param id
      */
     void setId(int id);
-    void saveImage(QString base64);
+    static void saveImage(QString base64, std::string name);
 private:
     int m_id;
     std::string m_url;

@@ -53,20 +53,40 @@ json Photo::toJSON()
     return photo;
 }
 
-void Photo::saveImage(QString base64)
+void Photo::saveImage(QString base64, std::string name)
 {
 
     QStringList strings = base64.split("base64,");
     QString b64 = strings.value(1);
 
-    QString nombreFoto = "foto1";
-    QByteArray img = b64.toUtf8();
-    img = QByteArray::fromBase64(img);
+    QByteArray imageData = QByteArray::fromBase64(b64.toUtf8());
+    QImage img;
+    img = QImage::fromData(imageData, "JPG");
 
-    QImage i = QImage::fromData(img);
-    i.save("Imagenes/img.png");
+    if(img.isNull()) qDebug() << "No imagen";
+    else
+    {
+
+        img.save("./imagenes/" + QString::fromUtf8(name.c_str()));
+
+    }
 
 }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 

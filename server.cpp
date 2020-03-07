@@ -19,7 +19,7 @@ void Server::processLine(std::string line)
 
 void Server::ReadFile()
 {
-    QString nombreArchivo = "../baseDatos.conf";
+    QString nombreArchivo = "./baseDatos.conf";
 
     if (QFile::exists(nombreArchivo))
     {
@@ -171,9 +171,9 @@ int Server::StartServer(int puerto)
 
                                     Style s;
                                     s.Load(receivedObject["estilo"]);
-                                    Photo photo("",0,"123",s.getID(),receivedObject["idUser"]);
                                     std::string b64 = receivedObject["base64"];
-                                    photo.saveImage(QString::fromUtf8(b64.c_str()));
+                                    Photo::saveImage(QString::fromUtf8(b64.c_str()), receivedObject["imageName"]);
+                                    Photo photo(receivedObject["imageName"],0,"123",s.getID(),receivedObject["idUser"]);
                                     //photo.createPhoto();
                                     //json respuesta = photo.toJSON();
                                     //respuesta["action"] = "subirFoto";

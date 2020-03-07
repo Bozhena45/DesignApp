@@ -4,6 +4,7 @@
 #include <QDebug>
 #include <QSqlError>
 #include <QFile>
+#include "style.h"
 
 Photo::Photo()
 {
@@ -58,12 +59,15 @@ json Photo::toJSON()
 json Photo::base64JSON()
 {
 
+    Style estilo;
+    estilo.load(m_idStyle);
+
     json photo;
     photo["uurl"] = m_url;
     photo["siize"] = m_like;
     photo["like"] = m_size;
     photo["iduser"] = m_idUser;
-    photo["idstyle"] = m_idStyle;
+    photo["estilo"] = estilo.getTipo();
 
     QString img("./imagenes/" + QString::fromUtf8(m_url.c_str()));
     QFile* file = new QFile(img);

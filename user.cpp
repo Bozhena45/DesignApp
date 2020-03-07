@@ -22,13 +22,18 @@ bool User::createUser()
 {
 
     QSqlQuery query;
-    query.prepare("INSERT into usuario (name,email,password) values (:nombre,:email,crypt(:passw,gen_salt('bf')))");
-
+    query.prepare("INSERT into usuario (name,email,password) values (:nombre,:email,crypt(:passw,gen_salt('bf'))) RETURNING id_user");
 
     query.bindValue(":nombre", QString::fromStdString(m_nombre));
     query.bindValue(":email", QString::fromStdString(m_email));
     query.bindValue(":passw", QString::fromStdString(m_password));
     query.exec();
+
+    if(query.next())
+    {
+        m_id = query.value("id_user").toInt();
+    }
+
     return  true;
 
 }

@@ -29,6 +29,8 @@ public:
      * @return
      */
     int getID();
+    std::string getTipo();
+    void load(int id);
 
 private:
     int m_idStyle;

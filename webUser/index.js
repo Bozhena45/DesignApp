@@ -76,7 +76,7 @@ socket.onmessage = function(event) {
         document.getElementById("salir").style.display="block";
         
         user= new User(mensaje.id, mensaje.nombre, mensaje.email,mensaje.password);
-        
+       
     }
     
     if (mensaje.action == "searchUser")
@@ -91,9 +91,8 @@ socket.onmessage = function(event) {
     
     if (mensaje.action == "subirFoto")
     {
-    
-            document.getElementById("FotosubidaExito").style.display="block";
         
+        document.getElementById("FotoYtipo").style.display="none";
         
     }
     
@@ -125,8 +124,11 @@ socket.onmessage = function(event) {
             var figure = document.createElement("FIGURE");
             var imagen = document.createElement("IMG");
             imagen.setAttribute("src", "data:image/jpg;base64, " + foto.base64);
+            var estilo = document.createElement("P");
+            estilo.innerHTML = "Estilo: " + foto.estilo;
             figure.appendChild(imagen);
             div.appendChild(figure);
+            div.appendChild(estilo);
             
             seccion.appendChild(div);
             
@@ -138,11 +140,41 @@ socket.onmessage = function(event) {
 };
 
 socket.onclose = function(event) {
+    
     console.log("Conexión cerrada");
+    
+    document.getElementById("headerPrincipal").style.display="none";
+    document.getElementById("headerPerfilUsuario").style.display="none";
+    document.getElementById("buscarUsuario").style.display="none";
+    
+    document.getElementById("buscarUsuarioSection").style.display="none";
+    document.getElementById("PerfilUser").style.display="none";
+    document.getElementById("FotoYtipo").style.display="none";
+    document.getElementById("sectionLogin").style.display="none";
+    document.getElementsByClassName("best")[0].style.display="none";
+    document.getElementsByClassName("registro")[0].style.display="none";
+    
+    document.getElementsByClassName("error")[0].style.display="block";
+    
 };
 
 socket.onerror = function(error) {
+    
     console.log("Error");
+    
+    document.getElementById("headerPrincipal").style.display="none";
+    document.getElementById("headerPerfilUsuario").style.display="none";
+    document.getElementById("buscarUsuario").style.display="none";
+    
+    document.getElementById("buscarUsuarioSection").style.display="none";
+    document.getElementById("PerfilUser").style.display="none";
+    document.getElementById("FotoYtipo").style.display="none";
+    document.getElementById("sectionLogin").style.display="none";
+    document.getElementsByClassName("best")[0].style.display="none";
+    document.getElementsByClassName("registro")[0].style.display="none";
+    
+    document.getElementsByClassName("error")[0].style.display="block";
+    
 };
 
 function userList()
@@ -247,6 +279,7 @@ function comment()
 
 function subirImagen()
 {
+    
     var photo = document.getElementById("imagen");
     var style = document.getElementById("Estilo").value;
     var id = user.id;

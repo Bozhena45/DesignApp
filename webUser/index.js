@@ -142,6 +142,8 @@ socket.onmessage = function(event) {
         var seccion = document.getElementsByClassName("best")[0];
         seccion.innerHTML = "";
         
+        var listaComentarios = [];
+        
         for(var foto of mensaje.lista)
         {
             
@@ -157,6 +159,7 @@ socket.onmessage = function(event) {
             corazon.setAttribute("class", "far fa-heart");
             var coment = document.createElement("I");
             coment.setAttribute("class", "far fa-comment");
+            coment.setAttribute("id", "coment"+foto.id);
             coment.style.float = "right";
             var comentarios = document.createElement("DIV");
             
@@ -169,6 +172,10 @@ socket.onmessage = function(event) {
             article.appendChild(figure);
             seccion.appendChild(article);
             
+            var comentar = document.getElementById("coment"+foto.id);
+            listaComentarios.push("coment"+foto.id);
+            
+            /*
             coment.onclick=function(){
                 
                 if(figcaption.childNodes[4] != null)
@@ -216,13 +223,82 @@ socket.onmessage = function(event) {
                     
                 }
                 
-            }
+            }*/
+            
+        }
+        
+        for (var c of listaComentarios)
+        {
+            
+             var co = document.getElementById(c);
+             
+             verComentarios(co);
             
         }
         
     }
 
 };
+
+function verComentarios(comentario)
+{
+    
+    comentario.onclick=function() { 
+        
+        var figcaption = comentario.parentNode;
+        var foto = figcaption.parentNode.id;
+
+        if(figcaption.childNodes[4] != null)
+        {
+            figcaption.childNodes[4].remove();
+            figcaption.childNodes[3].innerHTML = "";
+        }
+        else
+        {
+            
+            var node = document.createElement("DIV");
+            node.setAttribute("class", "comentario");
+                        
+            var titulo = document.createElement("H3");
+            titulo.innerHTML = "Nuevo comentario:";
+            node.appendChild(titulo);
+                        
+            var input = document.createElement("INPUT");
+            input.type = "text"
+            input.placeholder = "comentario.."
+            input.setAttribute("id", "coment");
+            node.appendChild(input);
+                        
+            var buton = document.createElement("INPUT");
+            buton.type = "button";
+            buton.value = "Enviar";
+            node.appendChild(buton);
+                        
+            figcaption.appendChild(node);
+                        
+            var listaComentarios = {action:"listaComentarios", idPhoto:parseInt(foto)};
+            socket.send(JSON.stringify(listaComentarios));
+                        
+            buton.onclick = function nuevoComent()
+            {
+                var texto = input.value;
+                var idUser = user.id;
+                var nuevoComentario = {action:"nuevoComentario",texto:texto, idUser:idUser, idPhoto:parseInt(foto)};
+                socket.send(JSON.stringify(nuevoComentario));
+                var listaComentarios = {action:"listaComentarios", idPhoto:parseInt(foto)};
+                socket.send(JSON.stringify(listaComentarios));
+                document.getElementById("coment").value="";
+
+            }
+            
+        }
+        
+        
+        
+        
+    }
+    
+}
 
 socket.onclose = function(event) {
     

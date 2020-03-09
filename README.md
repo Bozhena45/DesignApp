@@ -1,4 +1,4 @@
-
+Dirección de github : https://github.com/Bozhena45/DesignApp
 ******************************************* 
 
 **En que consiste DesignApp:** 
@@ -39,7 +39,7 @@ Resumido:
 **Ejemplos para poder utilizar la aplicación sin estar registrado**
 
 1) Una vez instalada la aplicación o descargada de github, puedes probar la aplicación sin tener que registrarte. Hay un usuario creado, con el cuál puedes acceder.
-usuario : pepa@gmail.com contraseña :1234
+usuario : Pepa@gmail.com contraseña :1234
 
 
 2)La base de datos se llama DesignApp.
@@ -67,13 +67,11 @@ una nueva pestaña en la cuál podrás dejar un comentario.
 ************************************************************** 
 **Otras opciones que me gustaría que tuviera mi proyecto:**
 
+1) Me habría gustado que al darle clic al botón "me gusta" se vaya actualizando en la base de datos y además vaya cambiando de color el icono.
 
-1) Lo más importante que me habría gustado implementar en mi proyecto es que en vez de que se guarde la URL de una foto se guarde la imagen.
+2) No se pueden buscar  los usuarios registrados porque debería hacerle a cada uno un perfil propio.
 
-2) Me habría gustado que al darle clic al botón "me gusta" se vaya actualizando en la base de datos y además vaya cambiando de color el icono.
-
-3) No se pueden buscar  los usuarios registrados porque debería hacerle a cada uno un perfil propio.
-
+3) No se pueden buscar usuarios,cuando le das al botón de buscar te muestra un ejemplo de como se vería.
 *********************************************************************************************
 ### Gestión de errores:
 

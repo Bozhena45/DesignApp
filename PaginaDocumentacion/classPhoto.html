@@ -63,6 +63,7 @@ $(function() {
 <div class="header">
   <div class="summary">
 <a href="#pub-methods">Métodos públicos</a> &#124;
+<a href="#pub-static-methods">Métodos públicos estáticos</a> &#124;
 <a href="#pri-attribs">Atributos privados</a> &#124;
 <a href="classPhoto-members.html">Lista de todos los miembros</a>  </div>
   <div class="headertitle">
@@ -86,9 +87,24 @@ Métodos públicos</h2></td></tr>
 <tr class="memitem:a7fee66e23bef6df61b97762f00777eb9"><td class="memItemLeft" align="right" valign="top"><a class="el" href="classnlohmann_1_1basic__json.html">json</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classPhoto.html#a7fee66e23bef6df61b97762f00777eb9">toJSON</a> ()</td></tr>
 <tr class="memdesc:a7fee66e23bef6df61b97762f00777eb9"><td class="mdescLeft">&#160;</td><td class="mdescRight">El método toJSON.  <a href="#a7fee66e23bef6df61b97762f00777eb9">Más...</a><br /></td></tr>
 <tr class="separator:a7fee66e23bef6df61b97762f00777eb9"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a98e64c15ecb7e543c2d34746cfacbd4d"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classPhoto.html#a98e64c15ecb7e543c2d34746cfacbd4d">setId</a> (int id)</td></tr>
-<tr class="memdesc:a98e64c15ecb7e543c2d34746cfacbd4d"><td class="mdescLeft">&#160;</td><td class="mdescRight">El método setId.  <a href="#a98e64c15ecb7e543c2d34746cfacbd4d">Más...</a><br /></td></tr>
+<tr class="memitem:a2edc43eb4710bf3e40c653d1cedcf100"><td class="memItemLeft" align="right" valign="top"><a class="el" href="classnlohmann_1_1basic__json.html">json</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classPhoto.html#a2edc43eb4710bf3e40c653d1cedcf100">base64JSON</a> ()</td></tr>
+<tr class="memdesc:a2edc43eb4710bf3e40c653d1cedcf100"><td class="mdescLeft">&#160;</td><td class="mdescRight">El método setId.  <a href="#a2edc43eb4710bf3e40c653d1cedcf100">Más...</a><br /></td></tr>
+<tr class="separator:a2edc43eb4710bf3e40c653d1cedcf100"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a98e64c15ecb7e543c2d34746cfacbd4d"><td class="memItemLeft" align="right" valign="top"><a id="a98e64c15ecb7e543c2d34746cfacbd4d"></a>
+void&#160;</td><td class="memItemRight" valign="bottom"><b>setId</b> (int id)</td></tr>
 <tr class="separator:a98e64c15ecb7e543c2d34746cfacbd4d"><td class="memSeparator" colspan="2">&#160;</td></tr>
+</table><table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pub-static-methods"></a>
+Métodos públicos estáticos</h2></td></tr>
+<tr class="memitem:aa3e9309bfaf46d0abe2edbdab4c80440"><td class="memItemLeft" align="right" valign="top"><a id="aa3e9309bfaf46d0abe2edbdab4c80440"></a>
+static void&#160;</td><td class="memItemRight" valign="bottom"><b>saveImage</b> (QString base64, std::string name)</td></tr>
+<tr class="separator:aa3e9309bfaf46d0abe2edbdab4c80440"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ad9665956440b91515bbd43a908d6d4f7"><td class="memItemLeft" align="right" valign="top"><a id="ad9665956440b91515bbd43a908d6d4f7"></a>
+static std::list&lt; <a class="el" href="classPhoto.html">Photo</a> &gt;&#160;</td><td class="memItemRight" valign="bottom"><b>find</b> (int idUser)</td></tr>
+<tr class="separator:ad9665956440b91515bbd43a908d6d4f7"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a7535ffda29cb515e54747d4dfd488b98"><td class="memItemLeft" align="right" valign="top"><a id="a7535ffda29cb515e54747d4dfd488b98"></a>
+static std::list&lt; <a class="el" href="classPhoto.html">Photo</a> &gt;&#160;</td><td class="memItemRight" valign="bottom"><b>find</b> ()</td></tr>
+<tr class="separator:a7535ffda29cb515e54747d4dfd488b98"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pri-attribs"></a>
 Atributos privados</h2></td></tr>
@@ -115,6 +131,31 @@ int&#160;</td><td class="memItemRight" valign="bottom"><b>m_idUser</b></td></tr>
 <div class="textblock"><p>Clase para el manejo de Fotos. </p>
 <p>Esta clase sirve para la creación de la url de una foto y poder insertarla dentro de la base de datos, tambien sirve para crear un JSON a partir de la libreria json = <a class="el" href="namespacenlohmann.html#a2bfd99e845a2e5cd90aeaf1b1431f474" title="default JSON class ">nlohmann::json</a>, y este mensaje JSON es lo que se le enviará al cliente </p>
 </div><h2 class="groupheader">Documentación de las funciones miembro</h2>
+<a id="a2edc43eb4710bf3e40c653d1cedcf100"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a2edc43eb4710bf3e40c653d1cedcf100">&#9670;&nbsp;</a></span>base64JSON()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="classnlohmann_1_1basic__json.html">json</a> Photo::base64JSON </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>El método setId. </p>
+<p>Sirve para cambiar el ID que es un parámetro privado </p><dl class="params"><dt>Parámetros</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">id</td><td></td></tr>
+  </table>
+  </dd>
+</dl>
+
+</div>
+</div>
 <a id="a01d0d38aa6d6f5d40f9493fe4793886a"></a>
 <h2 class="memtitle"><span class="permalink"><a href="#a01d0d38aa6d6f5d40f9493fe4793886a">&#9670;&nbsp;</a></span>createPhoto()</h2>
 
@@ -133,32 +174,6 @@ int&#160;</td><td class="memItemRight" valign="bottom"><b>m_idUser</b></td></tr>
 <p>El método createPhoto. </p>
 <p>Este método sirve para crear una foto dentro de la base de datos. Para crear una foto necesitaríamos los parámentros que están en el constructor. En este caso, no se subiría una foto en la aplicación sino la url de la foto.</p>
 <p>2)Subir photo: 2.1) Hacemos la query del insert(para añadir una nueva foto a la tabla de photo que está relacionada con la tabla usuario ) 2.2) Lo pasamos a JSON </p>
-
-</div>
-</div>
-<a id="a98e64c15ecb7e543c2d34746cfacbd4d"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a98e64c15ecb7e543c2d34746cfacbd4d">&#9670;&nbsp;</a></span>setId()</h2>
-
-<div class="memitem">
-<div class="memproto">
-      <table class="memname">
-        <tr>
-          <td class="memname">void Photo::setId </td>
-          <td>(</td>
-          <td class="paramtype">int&#160;</td>
-          <td class="paramname"><em>id</em></td><td>)</td>
-          <td></td>
-        </tr>
-      </table>
-</div><div class="memdoc">
-
-<p>El método setId. </p>
-<p>Sirve para cambiar el ID que es un parámetro privado </p><dl class="params"><dt>Parámetros</dt><dd>
-  <table class="params">
-    <tr><td class="paramname">id</td><td></td></tr>
-  </table>
-  </dd>
-</dl>
 
 </div>
 </div>
